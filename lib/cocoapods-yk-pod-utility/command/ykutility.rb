@@ -1,3 +1,5 @@
+require 'cocoapods-yk-pod-utility/command/create'
+
 module Pod
   class Command
     # This is an example of a cocoapods plugin adding a top-level subcommand
@@ -17,28 +19,13 @@ module Pod
     # @todo Create a PR to add your plugin to CocoaPods/cocoapods.org
     #       in the `plugins.json` file, once your plugin is released.
     #
-    class Utility < Command
-      self.summary = 'Short description of cocoapods-yk-pod-utility.'
-
+    class YKUtility < Command
+      self.summary = '组件创建工具.'
+      self.abstract_command = true
+      extend Executable
       self.description = <<-DESC
         Longer description of cocoapods-yk-pod-utility.
       DESC
-
-      self.arguments = 'NAME'
-
-      def initialize(argv)
-        @name = argv.shift_argument
-        super
-      end
-
-      def validate!
-        super
-        help! 'A Pod name is required.' unless @name
-      end
-
-      def run
-        UI.puts "Add your implementation for the cocoapods-yk-pod-utility plugin in #{__FILE__}"
-      end
     end
   end
 end

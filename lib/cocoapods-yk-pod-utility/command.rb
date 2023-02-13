@@ -1,1 +1,1 @@
-require 'cocoapods-yk-pod-utility/command/utility'
+require 'cocoapods-yk-pod-utility/command/ykutility'
