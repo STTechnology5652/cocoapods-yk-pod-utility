@@ -16,9 +16,10 @@ module Pod
 
       def self.options
         [
-          [ '--language=LANGUAGE', 'Language  [ ObjC / Swift ]'],
-          [ '--no-demo', 'Without a demo application with your library'],
+          ['--language=LANGUAGE', 'Language  [ ObjC / Swift ]'],
+          ['--no-demo', 'Without a demo application with your library'],
           ['--prefix=YK', 'Class prefix'],
+          ['--author=AUTHOR', 'Author'],
           ['--pod-path=PATH', 'Pod created at path'],
         ].concat(super)
       end
@@ -28,8 +29,9 @@ module Pod
 
         @language = argv.option('language', "swift").downcase
         @language = @language == "objc" ? @language : "swift"
-        @with_demo = !argv.flag?('no-demo', false )
+        @with_demo = !argv.flag?('no-demo', false)
         @prefix = argv.option('prefix')
+        @author = argv.option('author')
         @path = argv.option('pod-path', Dir.getwd.to_s)
         super
         @additional_args = argv.remainder!
@@ -53,7 +55,7 @@ module Pod
         else
 
         end
-        YKPod::YKCreate.new(@name, @language, @with_demo, @prefix, File.expand_path(@path)).createAction()
+        YKPod::YKCreate.new(@name, @language, @with_demo, @prefix, @author, File.expand_path(@path)).createAction()
 
       end
 
