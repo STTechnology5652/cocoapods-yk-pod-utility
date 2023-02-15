@@ -3,6 +3,7 @@ require 'cocoapods-yk-pod-utility/command/createTemplete/yk_create_pod_action'
 module Pod
 
   class YKUtility < Command
+
     class Create < YKUtility
       self.summary = 'Creates a new Pod'
 
@@ -17,7 +18,7 @@ module Pod
       def self.options
         [
           ['--language=LANGUAGE', 'Language  [ ObjC / Swift ]'],
-          ['--no-demo', 'Without a demo application with your library'],
+          ['--no-demo', 'Without a demo application for your library'],
           ['--prefix=YK', 'Class prefix'],
           ['--author=AUTHOR', 'Author'],
           ['--pod-path=PATH', 'Pod created at path'],
@@ -28,7 +29,7 @@ module Pod
         @name = argv.shift_argument
 
         @language = argv.option('language', "swift").downcase
-        @language = @language == "objc" ? @language : "swift"
+        @language = (["objc", "oc"].include? @language) ? "objc" : "swift"
         @with_demo = !argv.flag?('no-demo', false)
         @prefix = argv.option('prefix')
         @author = argv.option('author')
@@ -55,6 +56,9 @@ module Pod
         else
 
         end
+
+        au = open("|whoami").gets
+        puts "author: #{au}"
         YKPod::YKCreate.new(@name, @language, @with_demo, @prefix, @author, File.expand_path(@path)).createAction()
 
       end
