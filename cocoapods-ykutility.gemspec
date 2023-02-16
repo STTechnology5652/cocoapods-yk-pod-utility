@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['stephenchen@yeahka.com']
   spec.description   = %q{创建定制化标准组件.}
   spec.summary       = %q{一款cocoapods插件，用于创建定制化标准组件.}
-  spec.homepage      = 'https://github.com/EXAMPLE/cocoapods-yk-pod-utility'
+  spec.homepage      = 'https://github.com/stephen5652/cocoapods-yk-pod-utility.git'
   spec.license       = 'MIT'
 
   spec.files         = Dir['lib/**/*', 'podTemplate/**/*', 'podTemplate/**/.gitkeep']
