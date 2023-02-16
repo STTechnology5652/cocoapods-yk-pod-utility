@@ -107,7 +107,7 @@ module YKPod
     def pod_install
       ykNotice "open project"
       Dir.chdir(@example_dir_dest) do
-      system('pod deintegrate ./*.xcodeproj')
+      system('pod install')
       system('pod install')
       system('open -a /Applications/Xcode.app ./*.xcworkspace')
       end
