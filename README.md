@@ -1,10 +1,10 @@
-# cocoapods-yk-pod-utility
+# cocoapods-ykutility
 
-A description of cocoapods-yk-pod-utility.
+A description of cocoapods-ykutility.
 
 ## Installation
 
-    $ gem install cocoapods-yk-pod-utility
+    gem install cocoapods-ykutility
 
 ## Usage
 
@@ -24,6 +24,7 @@ A description of cocoapods-yk-pod-utility.
 - 附带参数创建Pod
   
   帮助指令：
+
   ```shell
   pod ykutility create --help
   ```
@@ -33,12 +34,12 @@ A description of cocoapods-yk-pod-utility.
   - 通过帮助指令，可以查看参数列表
   - 带 '=' 号的参数是 options 类型参数，需要附带数值， 且 '='之间不要有空格， 例： --language=ojbc  --prefix=ST --pod-path="/Users/imac24inch/Desktop"
   - --no-demo 是flag类型参数， 不需要附带数值
-    
+
 ### 帮助
 
-不需要专门记忆组件名称，可通过cocoapods的帮助指令查看组件使用方法。
+不需要专门记忆插件名称，可通过cocoapods的帮助指令查看插件使用方法。
 
-- 查看组件
+- 查看插件
 
   ```shell
   pod
@@ -47,8 +48,7 @@ A description of cocoapods-yk-pod-utility.
   效果：
   ![img](./ReadMeResource/01.png)
   
-
-- 查看组件指令集
+- 查看插件指令集
 
   ```shell
   pod ykutility
