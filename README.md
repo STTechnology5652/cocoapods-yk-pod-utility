@@ -1,6 +1,6 @@
 # cocoapods-ykutility
 
-A description of cocoapods-ykutility.
+创建定制化Pod模板.
 
 ## Installation
 
