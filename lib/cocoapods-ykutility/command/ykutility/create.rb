@@ -21,7 +21,6 @@ module Pod
           [
             ['--language=LANGUAGE', 'Language  [ ObjC / Swift ]'],
             ['--no-demo', 'Without a demo application for your library'],
-            ['--prefix=YK', 'Class prefix'],
             ['--author=AUTHOR', 'Author'],
             ['--pod-path=PATH', 'Pod created at path'],
           ].concat(super)
@@ -33,7 +32,6 @@ module Pod
           @language = argv.option('language', "swift").downcase
           @language = (["objc", "oc"].include? @language) ? "objc" : "swift"
           @with_demo = !argv.flag?('no-demo', false)
-          @prefix = argv.option('prefix')
           @author = argv.option('author', open("|git config --global user.name").gets).strip.gsub('.', '')
           @author_email = argv.option('email', open("|git config --global user.email").gets).strip
           @path = File.expand_path(argv.option('pod-path', Dir.getwd.to_s))
@@ -52,7 +50,7 @@ module Pod
         def run
           puts("create pod run")
 
-          YKPod::YKCreate.new(@name, @language, @with_demo, @prefix, @author, @author_email, @path).createAction()
+          YKPod::YKCreate.new(@name, @language, @with_demo, @author, @author_email, @path).createAction()
 
         end
 

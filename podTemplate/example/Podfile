@@ -7,7 +7,7 @@ target 'YKRPC_POD_NAME_Example' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for YKPRC_POD_NAMEExample
+  # Pods for YKRPC_POD_NAME_Example
   pod 'YKRPC_POD_NAME', :path => '../'
 
 end

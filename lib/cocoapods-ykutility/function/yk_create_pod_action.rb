@@ -12,13 +12,12 @@ module YKPod
     require 'cocoapods-ykutility/function/yk_exchange_tool'
     include YKPod::YKExchangeTool
 
-    def initialize(name, language, with_demo, prefix, author, email, path)
+    def initialize(name, language, with_demo, author, email, path)
       name = name.start_with?("YK") ? name : "YK" + name
 
       @name = name
       @language = language.downcase == "objc" ? "objc" : "swift"
       @with_demo = with_demo
-      @prefix = prefix
       @author = author
       @author_email = email
       @path = path
@@ -44,7 +43,7 @@ module YKPod
     end
 
     def createAction()
-      ykNotice "create pod execute: \n name: #{@name} \n language: #{@language} \n with_demo: #{@with_demo} \n prefix: #{@prefix} \n path: #{@path} \n author: #{@author}\n author_email: #{@author_email}"
+      ykNotice "create pod execute: \n name: #{@name} \n language: #{@language} \n with_demo: #{@with_demo} \n path: #{@path} \n author: #{@author}\n author_email: #{@author_email}"
       code = create_path
       exit!(code) unless code == 0
 
