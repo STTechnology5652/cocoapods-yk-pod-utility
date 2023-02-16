@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in cocoapods-yk-pod-utility.gemspec
+# Specify your gem's dependencies in cocoapods-ykutility.gemspec
 gemspec
 
 group :development do
