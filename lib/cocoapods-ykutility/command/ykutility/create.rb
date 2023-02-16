@@ -6,7 +6,9 @@ module Pod
   class Command
     class Ykutility < Command
 
+      require 'cocoapods-ykutility/function/yk_create_pod_config'
       class Create < Ykutility
+
         self.summary = 'Creates a new Pod'
 
         self.description = <<-DESC
@@ -22,35 +24,38 @@ module Pod
             ['--language=LANGUAGE', 'Language  [ ObjC / Swift ]'],
             ['--no-demo', 'Without a demo application for your library'],
             ['--author=AUTHOR', 'Author'],
+            ['--email=EMAIL', 'Email'],
+            ['--prefix=PREFIX', 'Prefix header'],
             ['--pod-path=PATH', 'Pod created at path'],
           ].concat(super)
         end
 
         def initialize(argv)
-          @name = argv.shift_argument
+          @config = YKPod::YKCreatePodConfig.new()
 
-          @language = argv.option('language', "swift").downcase
-          @language = (["objc", "oc"].include? @language) ? "objc" : "swift"
-          @with_demo = !argv.flag?('no-demo', false)
-          @author = argv.option('author', open("|git config --global user.name").gets).strip.gsub('.', '')
-          @author_email = argv.option('email', open("|git config --global user.email").gets).strip
-          @path = File.expand_path(argv.option('pod-path', Dir.getwd.to_s))
+          @config.name = argv.shift_argument
+          @config.language = (["objc", "oc"].include? argv.option('language', "swift").downcase) ? "objc" : "swift"
+          @config.with_demo = !argv.flag?('no-demo', false)
+          @config.author = argv.option('author', open("|git config --global user.name").gets).strip.gsub('.', '')
+          @config.author_email = argv.option('email', open("|git config --global user.email").gets).strip
+          @config.prefix = argv.option('prefix', "YK")
+          @config.path = File.expand_path(argv.option('pod-path', Dir.getwd.to_s))
           super
           @additional_args = argv.remainder!
         end
 
         def validate!
           super
-          help! 'A name for the Pod is required.' unless @name
-          help! 'The Pod name cannot contain spaces.' if @name =~ /\s/
-          help! 'The Pod name cannot contain plusses.' if @name =~ /\+/
-          help! "The Pod name cannot begin with a '.'" if @name[0, 1] == '.'
+          help! 'A name for the Pod is required.' unless @config.name
+          help! 'The Pod name cannot contain spaces.' if @config.name =~ /\s/
+          help! 'The Pod name cannot contain plusses.' if @config.name =~ /\+/
+          help! "The Pod name cannot begin with a '.'" if @config.name[0, 1] == '.'
         end
 
         def run
           puts("create pod run")
 
-          YKPod::YKCreate.new(@name, @language, @with_demo, @author, @author_email, @path).createAction()
+          YKPod::YKCreate.new(@config).createAction()
 
         end
 
