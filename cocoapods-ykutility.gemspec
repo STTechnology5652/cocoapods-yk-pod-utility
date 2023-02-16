@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = CocoapodsYkPodUtility::VERSION
   spec.authors       = ['stephen.chen']
   spec.email         = ['stephenchen@yeahka.com']
-  spec.description   = %q{A short description of cocoapods-ykutility.}
-  spec.summary       = %q{A longer description of cocoapods-ykutility.}
+  spec.description   = %q{创建定制化标准组件.}
+  spec.summary       = %q{一款cocoapods插件，用于创建定制化标准组件.}
   spec.homepage      = 'https://github.com/EXAMPLE/cocoapods-yk-pod-utility'
   spec.license       = 'MIT'
 
