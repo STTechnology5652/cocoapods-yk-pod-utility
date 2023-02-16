@@ -1,4 +1,4 @@
 module CocoapodsYkPodUtility
-  VERSION = "0.0.3"
+  VERSION = "0.0.4"
   YK_POD_TEMPLATE_PATH = File.expand_path(File.join(__FILE__, '../../../podTemplate'))
 end
