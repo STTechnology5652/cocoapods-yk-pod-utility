@@ -23,7 +23,7 @@ end
 # cocoapods  pod install hook
 post_install do |installer|
   # 添加创建时候类前缀
-  installer.pods_project.root_object.attributes["CLASSPREFIX"] = "YK" # 添加 class prefix
+  installer.pods_project.root_object.attributes["CLASSPREFIX"] = "YKPRC_CLASS_PREFIX" # 添加 class prefix
   # project编辑配置
   installer.pods_project.build_configurations.each do |config|
     config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '10.0'

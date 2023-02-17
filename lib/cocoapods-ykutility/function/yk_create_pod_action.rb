@@ -34,6 +34,7 @@ module YKPod
         "YKRPC_POD_NAME" => @config.prefix_name,
         "YKPRC_AUTHOR_NAME" => @config.author,
         "YKPRC_AUTHOR_EMAIL" => @config.author_email,
+        "YKPRC_CLASS_PREFIX" => @config.prefix,
         "YKPRC_CREATE_DATE" => time_str,
         "YKPRC_CREATE_YEAR" => year_str,
       }
