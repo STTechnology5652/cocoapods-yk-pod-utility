@@ -1,5 +1,6 @@
 require 'cocoapods'
 require 'cocoapods-ykutility/command/ykutility/create'
+require 'cocoapods-ykutility/command/ykutility/push'
 
 module Pod
   class Command
