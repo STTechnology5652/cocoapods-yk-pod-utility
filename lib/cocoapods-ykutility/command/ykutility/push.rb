@@ -4,6 +4,10 @@ module Pod
   class Command
     class Ykutility < Command
       class Push < Ykutility
+        require 'cocoapods/command/repo/push'
+        require 'cocoapods-ykutility/function/yk_log_tool'
+        include YKPod::YKLogTool
+
         include Pod::Config::Mixin
         self.summary = 'Release a new pod version'
 
@@ -32,7 +36,6 @@ module Pod
           @podspec = argv.shift_argument
           @source = source_for_repo
 
-          argv_map.append('--skip-import-validation') unless argv_map.include?('--skip-import-validation')
           argv_new = CLAide::ARGV.new(argv_map)
           @repo_push_cmd = Pod::Command::Repo::Push.new(argv_new)
 
@@ -53,11 +56,15 @@ module Pod
         end
 
         def run
-          puts("release pod run")
+          ykNotice "pod ykutility push running !"
+          self.repo_push_cmd.run # 使用Pod::Command::Repo::Push，发布pod
 
-          self.repo_push_cmd.run
+          podspec_files.each do |one|
+            spec = Pod::Specification.new(one)
+            puts "one_spec:#{spec.prefix_header_file}"
 
-          # 使用Pod::Command::Repo::Push，发布pod
+          end
+
           # 解析podspec, 识别出 公共文件， tag
           # 根据公共文件，生成接口文档
           # 检查tag是否存在，删除已有tag, 删除远端已有tag
