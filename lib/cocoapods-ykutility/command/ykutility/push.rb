@@ -35,17 +35,18 @@ module Pod
           @repo = argv.shift_argument
           @podspec = argv.shift_argument
           @source = source_for_repo
+          @source_urls = argv.option('sources', config.sources_manager.all.map(&:url).append(Pod::TrunkSource::TRUNK_REPO_URL).uniq.join(',')).split(',')
 
           argv_new = CLAide::ARGV.new(argv_map)
           @repo_push_cmd = Pod::Command::Repo::Push.new(argv_new)
-
+          @source_file_grep_arr = []
           # 此处需要保证传给父类的是父类可以都有的参数，不然会因为出现父类处理不了的参数而报错，导致任务失败
           super(argv_new)
         end
 
         def validate! # 此处validate 是复制 Pod::Command::Repo::Push ， 因为如果直接用 self.repo_push_cmd.validate! 会导致提示显示的是 Pod::Command::Repo::Push  的使用说明
           super
-          # self.repo_push_cmd.validate!
+          self.repo_push_cmd.validate!
 
           help! 'A spec-repo name or url is required.' unless @repo
           unless @source && @source.repo.directory?
@@ -60,9 +61,15 @@ module Pod
           self.repo_push_cmd.run # 使用Pod::Command::Repo::Push，发布pod
 
           podspec_files.each do |one|
-            spec = Pod::Specification.new(one)
-            puts "one_spec:#{spec.prefix_header_file}"
+            valid = Validator.new(one, @source_urls)
+            spec = valid.linter.spec
+            file = spec.defined_in_file
+            file_accessor = valid.file_accessor
+            analysis_one_spec(spec)
+            Pod::Specification
+            puts("#{spec.name} -> source_file_grep_arr: #{@source_file_grep_arr}")
 
+            Pod::Sandbox::FileAccessor.new([spec.parent])
           end
 
           # 解析podspec, 识别出 公共文件， tag
@@ -73,6 +80,21 @@ module Pod
         end
 
         private
+
+        def analysis_one_spec(spec)
+          public_headers_grep = spec.attributes_hash["public_header_files"]
+          source_files = spec.attributes_hash["source_files"]
+          podspec_file = spec.defined_in_file
+          @source_file_grep_arr.append(source_files)
+          puts "#{spec.name} -> public_header_files:#{public_headers_grep}"
+          puts "#{spec.name} -> source_files:#{source_files}"
+
+          sub_specs = spec.subspecs
+          puts "#{spec.name} -> sub_spec_arr:#{sub_specs}"
+          sub_specs.each do |oneSub|
+            analysis_one_spec(oneSub)
+          end
+        end
 
         def podspec_files
           if @podspec
