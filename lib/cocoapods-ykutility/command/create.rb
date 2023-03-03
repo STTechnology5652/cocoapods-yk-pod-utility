@@ -1,12 +1,12 @@
 # frozen_string_literal: true
-require 'cocoapods-ykutility/function/yk_create_pod_action'
+require 'cocoapods-ykutility/command/create/yk_create_pod_action'
 require 'cocoapods-ykutility/gem_version'
 
 module Pod
   class Command
     class Ykutility < Command
 
-      require 'cocoapods-ykutility/function/yk_create_pod_config'
+      require 'cocoapods-ykutility/command/create/yk_create_pod_config'
       class Create < Ykutility
 
         self.summary = 'Creates a new Pod'

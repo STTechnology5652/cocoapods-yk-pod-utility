@@ -4,13 +4,13 @@ module YKPod
   require 'cocoapods'
 
   class YKCreate
-    require 'cocoapods-ykutility/function/yk_create_pod_config'
-    require 'cocoapods-ykutility/function/yk_log_tool'
+    require 'cocoapods-ykutility/command/create/yk_create_pod_config'
+    require 'cocoapods-ykutility/tools/yk_log_tool'
     require 'find'
     include YKPod::YKLogTool
 
     require 'cocoapods-ykutility/gem_version'
-    require 'cocoapods-ykutility/function/yk_exchange_tool'
+    require 'cocoapods-ykutility/command/create/yk_exchange_tool'
     include YKPod::YKExchangeTool
 
     def initialize(conf)

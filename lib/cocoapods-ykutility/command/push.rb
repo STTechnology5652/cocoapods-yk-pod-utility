@@ -5,7 +5,7 @@ module Pod
     class Ykutility < Command
       class Push < Ykutility
         require 'cocoapods/command/repo/push'
-        require 'cocoapods-ykutility/function/yk_log_tool'
+        require 'cocoapods-ykutility/tools/yk_log_tool'
         include YKPod::YKLogTool
 
         include Pod::Config::Mixin
@@ -58,15 +58,14 @@ module Pod
 
         def run
           ykNotice "pod ykutility push running !"
-          self.repo_push_cmd.run # 使用Pod::Command::Repo::Push，发布pod
+          #self.repo_push_cmd.run # 使用Pod::Command::Repo::Push，发布pod
 
           podspec_files.each do |one|
             valid = Validator.new(one, @source_urls)
             spec = valid.linter.spec
             file = spec.defined_in_file
-            file_accessor = valid.file_accessor
+
             analysis_one_spec(spec)
-            Pod::Specification
             puts("#{spec.name} -> source_file_grep_arr: #{@source_file_grep_arr}")
 
             Pod::Sandbox::FileAccessor.new([spec.parent])
@@ -88,6 +87,10 @@ module Pod
           @source_file_grep_arr.append(source_files)
           puts "#{spec.name} -> public_header_files:#{public_headers_grep}"
           puts "#{spec.name} -> source_files:#{source_files}"
+
+          path_list = Pod::Sandbox::PathList.new(spec.defined_in_file.dirname)
+          file_accessor = Pod::Sandbox::FileAccessor.new(path_list, spec.consumer(Pod::Platform.ios))
+          puts("public_headers:#{file_accessor.public_headers}")
 
           sub_specs = spec.subspecs
           puts "#{spec.name} -> sub_spec_arr:#{sub_specs}"
