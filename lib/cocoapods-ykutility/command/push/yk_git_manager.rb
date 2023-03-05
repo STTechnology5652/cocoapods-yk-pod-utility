@@ -1,8 +1,20 @@
 # frozen_string_literal: true
 
+require 'git'
+module Git
+  class Status
+
+    def is_clean
+      self.added.blank? & self.changed.blank? & self.deleted.blank? & self.untracked.blank?
+    end
+  end
+end
+
 module YKUtitlityGitModule
-  require 'git'
   class YKGitManager
+    require 'git'
+    require 'cocoapods-ykutility/tools/yk_log_tool'
+    include YKPod::YKLogTool
 
     def initialize(dest_tag, dir)
       @dir = dir
@@ -15,14 +27,18 @@ module YKUtitlityGitModule
 
     def execute
       delete_dest_tag(@tag.to_s) # 删除原有tag
-      create_dest_tag(@tag.to_s) #新建tag
+      create_dest_tag(@tag.to_s) # 新建tag
     end
 
     private
+
     def create_dest_tag(dest_tag)
       status = @git.status
-      Git::Status
-      staus
+      is_clean = status.is_clean
+      ykNotice("work tree clean") if is_clean
+      ykNotice("work tree dirty") unless is_clean
+      # changed added deleted untracked
+      
     end
 
     def delete_dest_tag(dest_tag)
@@ -36,7 +52,7 @@ module YKUtitlityGitModule
       end
       @git.delete_tag(dest_tag) unless existed_arr.blank?
 
-      @git.fetch('origin',:tags => true )
+      @git.fetch('origin', :tags => true)
       existed_arr = @git.tags.find_all do |one|
         one.name == dest_tag
       end
