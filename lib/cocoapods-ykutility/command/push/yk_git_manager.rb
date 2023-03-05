@@ -2,10 +2,16 @@
 
 require 'git'
 module Git
-  class Status
-
+  class Base
     def is_clean
-      self.added.blank? & self.changed.blank? & self.deleted.blank? & self.untracked.blank?
+      cmd = "git status --short"
+      @cmd_out_put = []
+      IO.popen(cmd) do |f|
+        line = f.gets
+        @cmd_out_put << line unless line.blank?
+      end
+
+      @cmd_out_put.blank?
     end
   end
 end
@@ -16,29 +22,46 @@ module YKUtitlityGitModule
     require 'cocoapods-ykutility/tools/yk_log_tool'
     include YKPod::YKLogTool
 
-    def initialize(dest_tag, dir)
+    def initialize(dir)
       @dir = dir
-      @tag = dest_tag
 
       Dir.chdir(dir) do
         @git = Git.open(Dir.pwd)
       end
     end
 
-    def execute
-      delete_dest_tag(@tag.to_s) # 删除原有tag
-      create_dest_tag(@tag.to_s) # 新建tag
+    def prepare
+      is_clean = @git.is_clean
+      if is_clean == false
+        ykNotice("work tree dirty, work finish") unless is_clean
+        return false
+      end
+      return true
+    end
+
+    def commit_for_api(commit_message)
+      begin
+        @git.add(:all => true)
+        @git.commit(commit_message)
+        @git.push('origin', @git.current_branch)
+      rescue Git::FailedError => e
+        puts(e.to_s)
+      end
+    end
+
+    def update_tag(dest_tag)
+      delete_dest_tag(dest_tag.to_s) # 删除原有tag
+      create_dest_tag(dest_tag.to_s) # 新建tag
     end
 
     private
 
     def create_dest_tag(dest_tag)
-      status = @git.status
-      is_clean = status.is_clean
-      ykNotice("work tree clean") if is_clean
-      ykNotice("work tree dirty") unless is_clean
-      # changed added deleted untracked
-      
+      return false unless prepare == true
+
+      puts "start create tag"
+      @git.add_tag(dest_tag, :m => "\"#{dest_tag}\" -- auto created with api document, by 'cocoapods-ykutility'")
+      @git.push('origin', dest_tag)
     end
 
     def delete_dest_tag(dest_tag)
@@ -47,18 +70,18 @@ module YKUtitlityGitModule
       # 2. 删除本地tag
       # 3. 拉取远端tag
       # 4. 删除本地和远端tag
-      existed_arr = @git.tags.find_all do |one|
-        one.name == dest_tag
-      end
-      @git.delete_tag(dest_tag) unless existed_arr.blank?
 
-      @git.fetch('origin', :tags => true)
-      existed_arr = @git.tags.find_all do |one|
-        one.name == dest_tag
+      begin
+        exist_tag = @git.tag(dest_tag)
+      rescue Git::GitTagNameDoesNotExist => e
       end
 
-      @git.delete_tag(dest_tag) unless existed_arr.blank? unless existed_arr.blank?
-      @git.push('origin', dest_tag, :delete => true) unless existed_arr.blank?
+      ykNotice("tag [#{dest_tag}] existed, we delete it on local and remote \"origin\"") unless exist_tag.blank?
+      begin
+        @git.delete_tag(dest_tag) unless exist_tag.blank?
+        @git.push('origin', dest_tag, :delete => true) unless exist_tag.blank?
+      rescue Git::FailedError => e
+      end
     end
   end
 end

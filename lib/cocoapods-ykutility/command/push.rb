@@ -55,8 +55,11 @@ module Pod
         end
 
         def run
+          gitmanager = YKUtitlityGitModule::YKGitManager.new(Dir.pwd)
+          return false unless gitmanager.prepare == true
+
           ykNotice "pod ykutility push running !"
-          #self.repo_push_cmd.run # 使用Pod::Command::Repo::Push，发布pod
+          self.repo_push_cmd.run # 使用Pod::Command::Repo::Push，发布pod
 
           ykNotice "pod ykutility analysis create document running !"
           api_analysis = YKApi::YkApiAnalysis.new(podspec_files, @source_urls)
@@ -67,8 +70,9 @@ module Pod
           # 检查tag是否存在，删除已有tag, 删除远端已有tag
           # 添加接口文档，并提交，生成对应版本的tag,并对送到远端
           version = api_analysis.version
-          gitmanager = YKUtitlityGitModule::YKGitManager.new(version, Dir.pwd)
-          gitmanager.execute
+
+          gitmanager.commit_for_api("create api document for version: #{version.to_s}")
+          gitmanager.update_tag(version.to_s)
 
         end
 
