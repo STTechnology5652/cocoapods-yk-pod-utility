@@ -12,7 +12,7 @@ private class YKRPC_POD_NAMERegisterService: NSObject, YKModuleServiceRegisterPr
     }
 }
 
-// extension REHomeServiceRegist: XXXXProtocol {
+// extension YKRPC_POD_NAMERegisterService: XXXXProtocol {
 // static mehtod for XXXXProtocol
 //     static func xxxxx() -> xxxxxObjc {
 //         return XXXXX()
