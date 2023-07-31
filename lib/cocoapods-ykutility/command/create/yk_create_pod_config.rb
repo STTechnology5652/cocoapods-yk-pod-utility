@@ -3,12 +3,13 @@
 module YKPod
 
   class YKCreatePodConfig
-    attr_accessor :name, :language, :with_demo, :author, :author_email, :prefix, :path
+    attr_accessor :name, :language, :with_demo, :with_register, :author, :author_email, :prefix, :path
 
     def initialize()
       @name = ""
       @language = ""
       @with_demo = true
+      @with_register = false
       @author = open("|git config --global user.name").gets.strip.gsub('.', '')
       @author_email = open("|git config --global user.email").gets.strip
       @prefix = "YK"

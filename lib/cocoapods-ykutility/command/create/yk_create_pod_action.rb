@@ -26,6 +26,7 @@ module YKPod
 
       @template_pod_path = File.join(CocoapodsYkPodUtility::YK_POD_TEMPLATE_PATH, @config.language)
       @template_example_path = File.join(CocoapodsYkPodUtility::YK_POD_TEMPLATE_PATH, "example")
+      @register_pod_path = File.join(CocoapodsYkPodUtility::YK_POD_BUSINESS_REGISTER_PATH, @config.language)
 
       time_str = Time.now.strftime("%Y/%m/%d")
       year_str = Time.now.strftime("%Y")
@@ -46,7 +47,7 @@ module YKPod
       code = create_path
       exit!(code) unless code == 0
 
-      code = create_pod
+      code = create_pod()
       exit!(code) unless code == 0
 
       if @config.with_demo
@@ -73,6 +74,7 @@ module YKPod
       pod_dir_cache = File.join(@project_dir_dest, "#{@config.prefix_name}_cache")
       pod_dir_dest = File.join(@project_dir_dest)
       FileUtils.copy_entry(@template_pod_path, pod_dir_cache)
+      prepare_business_pod_files(pod_dir_cache)
 
       # 改文件夹
       file_arr = updateFileDirs(pod_dir_cache, 'YKRPC_POD_NAME',@config.prefix_name)
@@ -85,11 +87,35 @@ module YKPod
       return 0
     end
 
+    def prepare_business_pod_files(pod_dir_cache)
+      return unless @config.with_register == true
+      FileUtils.copy_entry(@register_pod_path, pod_dir_cache)
+      # 添加私有依赖
+      spec_file_path = File.join(pod_dir_cache, "YKRPC_POD_NAME.podspec")
+
+      # 在倒数第二行插入新语句
+      # s.dependency "YKRouterComponent"
+      #   s.dependency "YKModuleServiceComponent.swift" #swift 服务中间件， 如果是纯oc组件，请注释此中间件
+      de_router = "spec.dependency \"YKRouterComponent\"\n"
+      de_service = "spec.dependency \"YKModuleServiceComponent"
+      if @config.language == "swift"
+        de_service += ".swift\" #swift 服务中间件\n"
+      else
+        de_service += "\" #oc 服务中间件\n"
+      end
+
+      lines = File.readlines(spec_file_path)
+      lines.insert(-2, de_router)
+      lines.insert(-2, de_service)
+      File.open(spec_file_path, 'w') { |file| file.puts(lines.join) }
+    end
+
     def create_example()
       ykNotice "create example"
       example_dir_cache = File.join(@project_dir_dest, "Example_cache")
 
       FileUtils.copy_entry(@template_example_path, example_dir_cache)
+      prepare_business_pod_source(example_dir_cache)
 
       # 改文件夹
       file_arr = updateFileDirs(example_dir_cache, 'YKRPC_POD_NAME', @config.prefix_name)
@@ -101,6 +127,19 @@ module YKPod
       FileUtils.rm_r(example_dir_cache)
 
       return 0
+    end
+
+
+    def prepare_business_pod_source(example_dir_cache)
+      return unless @config.with_register == true
+      pod_file_cache = File.join(example_dir_cache, "podfile")
+
+
+      # 在第二行插入新语句
+      source_pri = "http://gitlab.y" + "ea" + "hk" + "a.com/App/iOS/YeahkaNativeComSpecsIndex.git"
+      lines = File.readlines(pod_file_cache)
+      lines.insert(2, "source \"#{source_pri}\"\n")
+      File.open(pod_file_cache, 'w') { |file| file.puts(lines.join) }
     end
 
     def pod_install

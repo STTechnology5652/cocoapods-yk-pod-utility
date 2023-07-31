@@ -27,6 +27,7 @@ module Pod
             ['--email=EMAIL', 'Email'],
             ['--prefix=PREFIX', 'Prefix header'],
             ['--pod-path=PATH', 'Pod created at path'],
+            ['--business', 'With service/router register template'],
           ].concat(super)
         end
 
@@ -36,6 +37,7 @@ module Pod
           @config.name = argv.shift_argument
           @config.language = (["objc", "oc"].include? argv.option('language', "swift").downcase) ? "objc" : "swift"
           @config.with_demo = !argv.flag?('no-demo', false)
+          @config.with_register = argv.flag?('business', false)
           @config.author = argv.option('author', open("|git config --global user.name").gets).strip.gsub('.', '')
           @config.author_email = argv.option('email', open("|git config --global user.email").gets).strip
           @config.prefix = argv.option('prefix', "YK")
