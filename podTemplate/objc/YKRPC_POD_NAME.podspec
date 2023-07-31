@@ -29,8 +29,9 @@ Pod::Spec.new do |spec|
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   # 放置 json,font,jpg,png等资源
 
+  #  spec.resources = ["YKRPC_POD_NAME/{Public,Private}/**/*.{xib}"]
   #  spec.resource_bundles = {
-  #    'YKRPC_POD_NAME' => ['YKRPC_POD_NAME/Assets/*.xcassets', "YKRPC_POD_NAME/{Public,Private}/**/*.{png,jpg,font,json,xib}"]
+  #    'YKRPC_POD_NAME' => ['YKRPC_POD_NAME/Assets/*.xcassets', "YKRPC_POD_NAME/{Public,Private}/**/*.{png,jpg,font,json}"]
   #  }
   
 
