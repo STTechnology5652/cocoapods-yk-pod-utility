@@ -20,6 +20,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'jazzy'
   spec.add_dependency 'git'
+  spec.add_dependency 'file_exists'
 
   spec.add_development_dependency 'bundler'
   spec.add_development_dependency 'rake'
