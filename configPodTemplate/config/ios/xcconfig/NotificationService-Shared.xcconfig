@@ -1,0 +1,4 @@
+INFOPLIST_FILE = YKRPC_POD_NAME_Example/NotificationService/NotificationServiceInfo.plist
+
+PRODUCT_NAME = NotificationService
+

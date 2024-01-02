@@ -1,0 +1,7 @@
+// YKRPC_POD_NAME_Example.debug.xcconfig
+//
+//  Created by YKPRC_AUTHOR_NAME on YKPRC_CREATE_DATE.
+//
+
+#include "YKRPC_POD_NAME_ExampleQ-Shared.xcconfig"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) KMACRO_TARGET_Q_DEBUG=1

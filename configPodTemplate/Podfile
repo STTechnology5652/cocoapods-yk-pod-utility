@@ -1,0 +1,34 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+# target 'NotificationContent' do
+#   # Comment the next line if you don't want to use dynamic frameworks
+#   use_frameworks!
+#
+#   # Pods for NotificationContent
+#
+# end
+
+# target 'NotificationService' do
+#   # Comment the next line if you don't want to use dynamic frameworks
+#   use_frameworks!
+#
+#   # Pods for NotificationService
+#
+# end
+
+target 'YKRPC_POD_NAME_Example' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for YKRPC_POD_NAME_Example
+
+end
+
+target 'YKRPC_POD_NAME_ExampleQ' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for YKRPC_POD_NAME_Example
+
+end

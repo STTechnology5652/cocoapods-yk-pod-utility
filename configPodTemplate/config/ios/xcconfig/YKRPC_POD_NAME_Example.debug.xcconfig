@@ -3,4 +3,5 @@
 //  Created by YKPRC_AUTHOR_NAME on YKPRC_CREATE_DATE.
 //
 
-#include "YKRPC_POD_NAME_Example-Share.xcconfig"
+#include "YKRPC_POD_NAME_Example-Shared.xcconfig"
+

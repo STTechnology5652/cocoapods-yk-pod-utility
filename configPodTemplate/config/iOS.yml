@@ -1,0 +1,144 @@
+############
+# Targets
+############
+
+targets:
+
+  # -----------
+  # MyApp_iOS
+  # -----------
+
+  YKRPC_POD_NAME_Example:
+    type: application
+    platform: iOS
+
+    # sources
+    sources:
+      - YKRPC_POD_NAME_Example/YKRPC_POD_NAME_Example/Common
+      - YKRPC_POD_NAME_Example/YKRPC_POD_NAME_Example/Info.plist
+
+    # Config Files
+    configFiles:
+      Debug: config/iOS/xcconfig/YKRPC_POD_NAME_Example.debug.xcconfig
+      Release: config/iOS/xcconfig/YKRPC_POD_NAME_Example.release.xcconfig
+      QDebug: config/iOS/xcconfig/YKRPC_POD_NAME_Example.Qdebug.xcconfig
+      QRelease: config/iOS/xcconfig/YKRPC_POD_NAME_Example.Qrelease.xcconfig
+
+    # dependencies
+    dependencies:
+      - target: "NotificationContent"
+      - target: "NotificationService"
+    #    - carthage: Reusable
+    #    - package: SwiftyUtils
+    #    - sdk: CloudKit.framework
+    scheme:
+      gatherCoverageData: true
+      configVariants:
+        YKRPC_POD_NAME_Example
+
+    # scripts
+    preBuildScripts:
+      # show build configuration
+      - script: |
+          # Build Configuration
+          echo "Build Configuration: $CONFIGURATION"
+          echo "GCC_PREPROCESSOR_DEFINITIONS: $GCC_PREPROCESSOR_DEFINITIONS"
+        name: 🔥build configuration
+
+  YKRPC_POD_NAME_ExampleQ:
+    type: application
+    platform: iOS
+
+    # sources
+    sources:
+      - YKRPC_POD_NAME_Example/YKRPC_POD_NAME_Example/Common
+      - YKRPC_POD_NAME_Example/YKRPC_POD_NAME_Example/InfoQ.plist
+
+    # Config Files
+    configFiles:
+      Debug: config/iOS/xcconfig/YKRPC_POD_NAME_Example.debug.xcconfig
+      Release: config/iOS/xcconfig/YKRPC_POD_NAME_Example.release.xcconfig
+      QDebug: config/iOS/xcconfig/YKRPC_POD_NAME_Example.Qdebug.xcconfig
+      QRelease: config/iOS/xcconfig/YKRPC_POD_NAME_Example.Qrelease.xcconfig
+
+    # dependencies
+    dependencies:
+      - target: "NotificationContent"
+      - target: "NotificationService"
+    #    - carthage: Reusable
+    #    - package: SwiftyUtils
+    #    - sdk: CloudKit.framework
+
+    scheme:
+      gatherCoverageData: true
+      configVariants:
+        YKRPC_POD_NAME_Example
+
+    # scripts
+    preBuildScripts:
+      # show build configuration
+      - script: |
+          # Build Configuration
+          echo "Build Configuration: $CONFIGURATION"
+          echo "GCC_PREPROCESSOR_DEFINITIONS: $GCC_PREPROCESSOR_DEFINITIONS"
+        name: 🔥build configuration
+
+  # -----------
+  # NotificationContent
+  # -----------
+  NotificationContent:
+    platform: iOS
+    type: app-extension
+    sources:
+      - YKRPC_POD_NAME_Example/NotificationContent
+
+    # Config Files
+    configFiles:
+      Debug: config/iOS/xcconfig/NotificationContent.debug.xcconfig
+      Release: config/iOS/xcconfig/NotificationContent.release.xcconfig
+      QDebug: config/iOS/xcconfig/NotificationContent.Qdebug.xcconfig
+      QRelease: config/iOS/xcconfig/NotificationContent.Qrelease.xcconfig
+
+    # dependencies
+    dependencies:
+      - sdk: UserNotifications.framework
+
+    # scripts
+    preBuildScripts:
+      # show build configuration
+      - script: |
+          # Build Configuration
+          echo "Build Configuration: $CONFIGURATION"
+          echo "GCC_PREPROCESSOR_DEFINITIONS: $GCC_PREPROCESSOR_DEFINITIONS"
+        name: 🔥build configuration
+
+  # -----------
+  # NotificationService
+  # -----------
+
+  NotificationService:
+    platform: iOS
+    type: app-extension
+    sources:
+      - YKRPC_POD_NAME_Example/NotificationService
+
+    # Config Files
+    configFiles:
+      Debug: config/iOS/xcconfig/NotificationService.debug.xcconfig
+      Release: config/iOS/xcconfig/NotificationService.release.xcconfig
+      QDebug: config/iOS/xcconfig/NotificationService.Qdebug.xcconfig
+      QRelease: config/iOS/xcconfig/NotificationService.Qrelease.xcconfig
+
+    # dependencies
+    dependencies:
+      - sdk: UserNotifications.framework
+
+    # scripts
+    preBuildScripts:
+      # show build configuration
+      - script: |
+          # Build Configuration
+          echo "Build Configuration: $CONFIGURATION"
+          echo "GCC_PREPROCESSOR_DEFINITIONS: $GCC_PREPROCESSOR_DEFINITIONS"
+        name: 🔥build configuration
+

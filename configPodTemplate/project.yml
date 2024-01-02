@@ -2,36 +2,32 @@
 # https://github.com/yonaskolb/XcodeGen/blob/master/Docs/ProjectSpec.md
 
 name: YKRPC_POD_NAME_Example
+
 options:
   minimumXcodeGenVersion: 2.10
-  usesTabs: false
-  indentWidth: 4
-  tabWidth: 4
-  groupSortPosition: top
-  groupOrdering:
-    - order: [ config ]
-    - pattern: YKRPC_POD_NAME_Example
-      order: [ config ]    # - pattern: Component
-      # order: [Demo, Base]
   generateEmptyDirectories: true
-  bundleIdPrefix: come.YKPRC-POD-Name.example
+  bundleIdPrefix: come.YKPRC_POD_Name.example
   developmentLanguage: en
-  # preGenCommand: |
-  #   FILE=mazu/Resource/R.generated.swift
-  #   if [ ! -f "$FILE" ]; then
-  #     touch "$FILE"
-  #     echo "Create R.swift because it not exist"
-  #   fi
-  postGenCommand: pod install
+#  postGenCommand: pod install
 
-settings:
+  deploymentTarget:
+    iOS: "10.0"
+
+fileGroups:
+  - config/iOS
 
 configs:
   Debug: DEBUG-NAME
   Release: RELEASE-NAME
-configFiles:
-  Debug: config/iOS/xcconfig/Project-Debug.xcconfig
-  Release: config/iOS/xcconfig/Project-Release.xcconfig
+  QDebug: QDEBUG-NAME
+  QRelease: QRELEASE-NAME
 
-### setting for each targets
-# Targets
+configFiles:
+  Debug: config/iOS/xcconfig/Project.debug.xcconfig
+  Release: config/iOS/xcconfig/Project.release.xcconfig
+  QDebug: config/iOS/xcconfig/Project.Qdebug.xcconfig
+  QRelease: config/iOS/xcconfig/Project.Qrelease.xcconfig
+
+include:
+  - path: config/iOS.yml
+    relativePaths: false
