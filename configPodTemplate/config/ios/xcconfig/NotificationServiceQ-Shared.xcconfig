@@ -1,7 +1,0 @@
-#include "NotificationService-Shared.xcconfig"
-
-INFOPLIST_FILE = YKRPC_POD_NAME_Example/NotificationService/NotificationServiceInfoQ.plist
-
-GCC_PREPROCESSOR_DEFINITIONS = $(inherited) KENTERPRISE=1
-
-PRODUCT_BUNDLE_IDENTIFIER = come.YKPRC-POD-Name.example.YKRPC-POD-NAME-ExampleQ.NotificationServiceQ

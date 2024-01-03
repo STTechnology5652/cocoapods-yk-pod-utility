@@ -1,5 +1,0 @@
-//:configuration = QDebug
-
-SWIFT_VERSION = 4.2
-
-PRODUCT_NAME = YKRPC_POD_NAME_Example
