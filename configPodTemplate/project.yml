@@ -19,15 +19,16 @@ fileGroups:
 configs:
   Debug: DEBUG-NAME
   Release: RELEASE-NAME
-  QDebug: QDEBUG-NAME
-  QRelease: QRELEASE-NAME
+  DebugQ: DEBUGQ-NAME
+  ReleaseQ: RELEASEQ-NAME
 
 configFiles:
   Debug: config/iOS/xcconfig/Project.debug.xcconfig
   Release: config/iOS/xcconfig/Project.release.xcconfig
-  QDebug: config/iOS/xcconfig/Project.Qdebug.xcconfig
-  QRelease: config/iOS/xcconfig/Project.Qrelease.xcconfig
+  DebugQ: config/iOS/xcconfig/Project.Qdebug.xcconfig
+  ReleaseQ: config/iOS/xcconfig/Project.Qrelease.xcconfig
 
 include:
   - path: config/iOS.yml
     relativePaths: false
+

@@ -1,9 +1,6 @@
-// Project.debug.xcconfig
+// Project.Qdebug.xcconfig
 //
 //  Created by YKPRC_AUTHOR_NAME on YKPRC_CREATE_DATE.
 //
 
-#include "Project-Shared.xcconfig"
-//:configuration = QDebug
-GCC_PREPROCESSOR_DEFINITIONS = $(inherited) DEBUG=1
-
+#include "Project.debug.xcconfig"

@@ -4,4 +4,3 @@
 //
 
 #include "YKRPC_POD_NAME_ExampleQ-Shared.xcconfig"
-GCC_PREPROCESSOR_DEFINITIONS = $(inherited) KMACRO_TARGET_Q_DEBUG=1

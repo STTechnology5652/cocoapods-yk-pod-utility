@@ -1,4 +1,6 @@
 INFOPLIST_FILE = YKRPC_POD_NAME_Example/NotificationService/NotificationServiceInfo.plist
 
 PRODUCT_NAME = NotificationService
+EXECUTABLE_NAME = NotificationService
 
+PRODUCT_BUNDLE_IDENTIFIER = come.YKPRC-POD-Name.example.YKRPC-POD-NAME-Example.NotificationService

@@ -1,3 +1,6 @@
 INFOPLIST_FILE = YKRPC_POD_NAME_Example/NotificationContent/NotificationContentInfo.plist
 
 PRODUCT_NAME = NotificationContent
+EXECUTABLE_NAME = NotificationContent
+
+PRODUCT_BUNDLE_IDENTIFIER = come.YKPRC-POD-Name.example.YKRPC-POD-NAME-Example.NotificationContent

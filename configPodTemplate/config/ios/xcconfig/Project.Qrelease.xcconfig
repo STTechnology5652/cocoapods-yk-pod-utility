@@ -1,6 +1,6 @@
-// Project.release.xcconfig
+// Project.Qrelease.xcconfig
 //
 //  Created by YKPRC_AUTHOR_NAME on YKPRC_CREATE_DATE.
 //
 
-#include "Project-Shared.xcconfig"
+#include "Project.release.xcconfig"
