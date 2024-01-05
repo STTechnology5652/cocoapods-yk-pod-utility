@@ -1,4 +1,5 @@
 
-SWIFT_VERSION = 4.2
+PRODUCT_NAME = NotificationService
+PRODUCT_BUNDLE_IDENTIFIER = com.Example.YKPRC-POD-NAME.NotificationService
 
-PRODUCT_NAME = YKRPC-POD-NAME_Example
+INFOPLIST_FILE = YKRPC_POD_NAME_Example/NotificationService/NotificationServiceInfo.plist

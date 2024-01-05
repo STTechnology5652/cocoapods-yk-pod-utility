@@ -438,3 +438,33 @@ PRODUCT_NAME = YKRPC-POD-NAME_Example
 
 SDKROOT = iphoneos
 
+
+// Current Project Version
+//
+// This setting defines the current version of the project. The value must be a integer
+// or floating point number, such as `57` or `365.8`.
+//
+// When `GENERATE_INFOPLIST_FILE` is enabled, sets the value of the
+// [CFBundleVersion](https://developer.apple.com/documentation/bundleresources/information_property_list/cfbundleversion)
+// key in the `Info.plist` file to the value of this build setting.
+
+CURRENT_PROJECT_VERSION = 1
+
+
+// Marketing Version
+//
+// This setting defines the user-visible version of the project.
+//
+// When `GENERATE_INFOPLIST_FILE` is enabled, sets the value of the
+// [CFBundleShortVersionString](https://developer.apple.com/documentation/bundleresources/information_property_list/cfbundleshortversionstring)
+// key in the `Info.plist` file to the value of this build setting.
+
+MARKETING_VERSION = 1.0.2
+
+
+// Development Team
+//
+// The team ID of a development team to use for signing certificates and provisioning
+// profiles.
+
+DEVELOPMENT_TEAM = A6BT3R49BJ

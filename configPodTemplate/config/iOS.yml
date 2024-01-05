@@ -19,48 +19,15 @@ targets:
 
     # Config Files
     configFiles:
-      Debug: config/iOS/xcconfig/YKRPC_POD_NAME_Example.debug.xcconfig
-      Release: config/iOS/xcconfig/YKRPC_POD_NAME_Example.release.xcconfig
-      DebugQ: config/iOS/xcconfig/YKRPC_POD_NAME_Example.Qdebug.xcconfig
-      ReleaseQ: config/iOS/xcconfig/YKRPC_POD_NAME_Example.Qrelease.xcconfig
+      Debug: config/iOS/target-main/config-custom/debug.xcconfig
+      Release: config/iOS/target-main/config-custom/release.xcconfig
+      DebugQ: config/iOS/target-main/config-enterprise/debug.xcconfig
+      ReleaseQ: config/iOS/target-main/config-enterprise/release.xcconfig
 
     # dependencies
     dependencies:
-      - target: NotificationContent
+#      - target: NotificationContent
       - target: NotificationService
-    #    - carthage: Reusable
-    #    - package: SwiftyUtils
-    #    - sdk: CloudKit.framework
-
-    # scripts
-    preBuildScripts:
-      # show build configuration
-      - script: |
-          # Build Configuration
-          echo "Build Configuration: $CONFIGURATION"
-          echo "GCC_PREPROCESSOR_DEFINITIONS: $GCC_PREPROCESSOR_DEFINITIONS"
-        name: 🔥build configuration
-
-  YKRPC_POD_NAME_ExampleQ:
-    type: application
-    platform: iOS
-
-    # sources
-    sources:
-      - YKRPC_POD_NAME_Example/YKRPC_POD_NAME_Example/Common
-      - YKRPC_POD_NAME_Example/YKRPC_POD_NAME_Example/InfoQ.plist
-
-    # Config Files
-    configFiles:
-      Debug: config/iOS/xcconfig/YKRPC_POD_NAME_Example.debug.xcconfig
-      Release: config/iOS/xcconfig/YKRPC_POD_NAME_Example.release.xcconfig
-      DebugQ: config/iOS/xcconfig/YKRPC_POD_NAME_Example.Qdebug.xcconfig
-      ReleaseQ: config/iOS/xcconfig/YKRPC_POD_NAME_Example.Qrelease.xcconfig
-
-    # dependencies
-    dependencies:
-      - target: NotificationContentQ
-      - target: NotificationServiceQ
     #    - carthage: Reusable
     #    - package: SwiftyUtils
     #    - sdk: CloudKit.framework
@@ -77,57 +44,31 @@ targets:
   # -----------
   # NotificationContent
   # -----------
-  NotificationContent:
-    platform: iOS
-    type: app-extension
-    sources:
-      - YKRPC_POD_NAME_Example/NotificationContent
-
-    # Config Files
-    configFiles:
-      Debug: config/iOS/xcconfig/NotificationContent.debug.xcconfig
-      Release: config/iOS/xcconfig/NotificationContent.release.xcconfig
-      DebugQ: config/iOS/xcconfig/NotificationContent.Qdebug.xcconfig
-      ReleaseQ: config/iOS/xcconfig/NotificationContent.Qrelease.xcconfig
-
-    # dependencies
-    dependencies:
-      - sdk: UserNotifications.framework
-
-    # scripts
-    preBuildScripts:
-      # show build configuration
-      - script: |
-          # Build Configuration
-          echo "Build Configuration: $CONFIGURATION"
-          echo "GCC_PREPROCESSOR_DEFINITIONS: $GCC_PREPROCESSOR_DEFINITIONS"
-        name: 🔥build configuration
-
-  NotificationContentQ:
-    platform: iOS
-    type: app-extension
-    sources:
-      - YKRPC_POD_NAME_Example/NotificationContent
-
-    # Config Files
-    configFiles:
-      Debug: config/iOS/xcconfig/NotificationContent.debug.xcconfig
-      Release: config/iOS/xcconfig/NotificationContent.release.xcconfig
-      DebugQ: config/iOS/xcconfig/NotificationContent.Qdebug.xcconfig
-      ReleaseQ: config/iOS/xcconfig/NotificationContent.Qrelease.xcconfig
-
-    # dependencies
-    dependencies:
-      - sdk: UserNotifications.framework
-
-    # scripts
-    preBuildScripts:
-      # show build configuration
-      - script: |
-          # Build Configuration
-          echo "Build Configuration: $CONFIGURATION"
-          echo "GCC_PREPROCESSOR_DEFINITIONS: $GCC_PREPROCESSOR_DEFINITIONS"
-        name: 🔥build configuration
+#  NotificationContent:
+#    platform: iOS
+#    type: app-extension
+#    sources:
+#      - YKRPC_POD_NAME_Example/NotificationContent
+#
+#    # Config Files
+#    configFiles:
+#      Debug: config/iOS/target-notificationContent/config-custom/debug.xcconfig
+#      Release: config/iOS/target-notificationContent/config-custom/release.xcconfig
+#      DebugQ: config/iOS/target-notificationContent/config-enterprise/debug.xcconfig
+#      ReleaseQ: config/iOS/target-notificationContent/config-enterprise/release.xcconfig
+#
+#    # dependencies
+#    dependencies:
+#      - sdk: UserNotifications.framework
+#
+#    # scripts
+#    preBuildScripts:
+#      # show build configuration
+#      - script: |
+#          # Build Configuration
+#          echo "Build Configuration: $CONFIGURATION"
+#          echo "GCC_PREPROCESSOR_DEFINITIONS: $GCC_PREPROCESSOR_DEFINITIONS"
+#        name: 🔥build configuration
 
   # -----------
   # NotificationService
@@ -141,36 +82,10 @@ targets:
 
     # Config Files
     configFiles:
-      Debug: config/iOS/xcconfig/NotificationService.debug.xcconfig
-      Release: config/iOS/xcconfig/NotificationService.release.xcconfig
-      DebugQ: config/iOS/xcconfig/NotificationService.Qdebug.xcconfig
-      ReleaseQ: config/iOS/xcconfig/NotificationService.Qrelease.xcconfig
-
-    # dependencies
-    dependencies:
-      - sdk: UserNotifications.framework
-
-    # scripts
-    preBuildScripts:
-      # show build configuration
-      - script: |
-          # Build Configuration
-          echo "Build Configuration: $CONFIGURATION"
-          echo "GCC_PREPROCESSOR_DEFINITIONS: $GCC_PREPROCESSOR_DEFINITIONS"
-        name: 🔥build configuration
-
-  NotificationServiceQ:
-    platform: iOS
-    type: app-extension
-    sources:
-      - YKRPC_POD_NAME_Example/NotificationService
-
-    # Config Files
-    configFiles:
-      Debug: config/iOS/xcconfig/NotificationService.debug.xcconfig
-      Release: config/iOS/xcconfig/NotificationService.release.xcconfig
-      DebugQ: config/iOS/xcconfig/NotificationService.Qdebug.xcconfig
-      ReleaseQ: config/iOS/xcconfig/NotificationService.Qrelease.xcconfig
+      Debug: config/iOS/target-notificationService/config-custom/debug.xcconfig
+      Release: config/iOS/target-notificationService/config-custom/release.xcconfig
+      DebugQ: config/iOS/target-notificationService/config-enterprise/debug.xcconfig
+      ReleaseQ: config/iOS/target-notificationService/config-enterprise/release.xcconfig
 
     # dependencies
     dependencies:
@@ -213,30 +128,3 @@ schemes:
     management:
       share: true
 
-  YKRPC_POD_NAME_ExampleQ:
-    build:
-      targets:
-        YKRPC_POD_NAME_ExampleQ: [ build,  analyze, profile, archive ]
-      config: DebugQ
-      parallelizeBuild: true
-      buildImplicitDependencies: true
-
-    test:
-      config: DebugQ
-
-    run:
-      config: DebugQ
-      executable: YKRPC_POD_NAME_ExampleQ
-
-    profile:
-      config: ReleaseQ
-
-    analyze:
-      config: DebugQ
-
-    archive:
-      config: ReleaseQ
-      customArchiveName: YKRPC_POD_NAME_ExampleQ
-      revealArchiveInOrganizer: false
-    management:
-      share: true

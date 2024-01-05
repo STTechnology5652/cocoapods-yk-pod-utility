@@ -54,3 +54,8 @@ SWIFT_OPTIMIZATION_LEVEL = -O
 // If enabled, perform validation checks on the product as part of the build process.
 
 VALIDATE_PRODUCT = YES
+
+
+//:completeSettings = none
+CODE_SIGN_IDENTITY = Apple Distribution
+CODE_SIGN_IDENTITY[sdk=iphoneos*] = iPhone Distribution

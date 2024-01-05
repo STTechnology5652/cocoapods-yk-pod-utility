@@ -39,8 +39,6 @@ ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon
 // keychain within your keychain path. A missing or invalid certificate will cause a
 // build error.
 
-CODE_SIGN_IDENTITY = Apple Development
-
 
 
 // Code Signing Style
@@ -54,14 +52,6 @@ CODE_SIGN_STYLE = Automatic
 
 
 
-// Development Team
-//
-// The team ID of a development team to use for signing certificates and provisioning
-// profiles.
-
-//DEVELOPMENT_TEAM =
-
-
 
 // Info.plist File
 //
@@ -70,7 +60,7 @@ CODE_SIGN_STYLE = Automatic
 // [Information Property
 // List](https://developer.apple.com/documentation/bundleresources/information_property_list).
 
-INFOPLIST_FILE = YeahPay/Info.plist
+INFOPLIST_FILE = YKRPC_POD_NAME_Example/YKRPC_POD_NAME_Example/Info.plist
 
 
 
@@ -82,18 +72,6 @@ INFOPLIST_FILE = YeahPay/Info.plist
 // Topics](https://developer.apple.com/library/content/documentation/DeveloperTools/Conceptual/DynamicLibraries/000-Introduction/Introduction.html).
 
 LD_RUNPATH_SEARCH_PATHS = $(inherited) @executable_path/Frameworks
-
-
-
-// Marketing Version
-//
-// This setting defines the user-visible version of the project.
-//
-// When `GENERATE_INFOPLIST_FILE` is enabled, sets the value of the
-// [CFBundleShortVersionString](https://developer.apple.com/documentation/bundleresources/information_property_list/cfbundleshortversionstring)
-// key in the `Info.plist` file to the value of this build setting.
-
-MARKETING_VERSION = 1.0.5
 
 
 

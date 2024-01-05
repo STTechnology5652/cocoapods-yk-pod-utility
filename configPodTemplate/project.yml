@@ -23,10 +23,10 @@ configs:
   ReleaseQ: RELEASEQ-NAME
 
 configFiles:
-  Debug: config/iOS/xcconfig/Project.debug.xcconfig
-  Release: config/iOS/xcconfig/Project.release.xcconfig
-  DebugQ: config/iOS/xcconfig/Project.Qdebug.xcconfig
-  ReleaseQ: config/iOS/xcconfig/Project.Qrelease.xcconfig
+  Debug: config/iOS/project/config-custom/debug.xcconfig
+  Release: config/iOS/project/config-custom/release.xcconfig
+  DebugQ: config/iOS/project/config-enterprise/debug.xcconfig
+  ReleaseQ: config/iOS/project/config-enterprise/release.xcconfig
 
 include:
   - path: config/iOS.yml
