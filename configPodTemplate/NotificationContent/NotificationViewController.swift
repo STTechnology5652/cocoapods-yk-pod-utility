@@ -1,8 +1,8 @@
 //
 //  NotificationViewController.swift
-//  YKRPC_POD_NAME_NotificationContent
+//  NotificationContent
 //
-//  Created by stephenchen on 2024/1/3.
+//  Created by stephenchen on 2024/1/7.
 //
 
 import UIKit

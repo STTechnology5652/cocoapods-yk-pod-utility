@@ -2,4 +2,4 @@
 PRODUCT_NAME = NotificationService
 PRODUCT_BUNDLE_IDENTIFIER = com.Example.YKPRC-POD-NAME.NotificationService
 
-INFOPLIST_FILE = YKRPC_POD_NAME_Example/NotificationService/NotificationServiceInfo.plist
+INFOPLIST_FILE = NotificationService/NotificationServiceInfo.plist
