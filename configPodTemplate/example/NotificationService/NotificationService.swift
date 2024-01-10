@@ -1,6 +1,6 @@
 //
 //  NotificationService.swift
-//  YKPRC_POD_NAME_NotificationService
+//  YKRPC_POD_NAME_NotificationService
 //
 //  Created by stephenchen on 2024/1/3.
 //

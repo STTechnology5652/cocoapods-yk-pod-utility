@@ -2,7 +2,7 @@
 //  YKRPC_POD_NAME_ExampleTests.swift
 //  YKRPC_POD_NAME_ExampleTests
 //
-//  Created by YKPRC_AUTHOR_NAME on YKPRC_CREATE_DATE.
+//  Created by YKRPC_AUTHOR_NAME on YKRPC_CREATE_DATE.
 //
 
 import XCTest

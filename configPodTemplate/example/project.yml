@@ -6,7 +6,7 @@ name: YKRPC_POD_NAME_Example
 options:
   minimumXcodeGenVersion: 2.10
   generateEmptyDirectories: true
-  bundleIdPrefix: come.YKPRC_POD_Name.example
+  bundleIdPrefix: come.YKRPC_POD_Name.example
   developmentLanguage: en
 #  postGenCommand: pod install
 

@@ -33,11 +33,11 @@ module YKPod
       # 关键字替换
       @keyMap = {
         "YKRPC_POD_NAME" => @config.prefix_name,
-        "YKPRC_AUTHOR_NAME" => @config.author,
-        "YKPRC_AUTHOR_EMAIL" => @config.author_email,
-        "YKPRC_CLASS_PREFIX" => @config.prefix,
-        "YKPRC_CREATE_DATE" => time_str,
-        "YKPRC_CREATE_YEAR" => year_str,
+        "YKRPC_AUTHOR_NAME" => @config.author,
+        "YKRPC_AUTHOR_EMAIL" => @config.author_email,
+        "YKRPC_CLASS_PREFIX" => @config.prefix,
+        "YKRPC_CREATE_DATE" => time_str,
+        "YKRPC_CREATE_YEAR" => year_str,
       }
 
     end
@@ -79,7 +79,7 @@ module YKPod
       # 改文件夹
       file_arr = updateFileDirs(pod_dir_cache, 'YKRPC_POD_NAME',@config.prefix_name)
 
-      # 替换 YKRPC_POD_NAME YKPRC_AUTHOR_NAME YKPRC_AUTHOR_EMAIL  YKPRC_CREATE_DATE   YKPRC_CREATE_YEAR
+      # 替换 YKRPC_POD_NAME YKRPC_AUTHOR_NAME YKRPC_AUTHOR_EMAIL  YKRPC_CREATE_DATE   YKRPC_CREATE_YEAR
       updateFiles(file_arr, @keyMap)
 
       FileUtils.copy_entry(pod_dir_cache, pod_dir_dest)
@@ -120,7 +120,7 @@ module YKPod
       # 改文件夹
       file_arr = updateFileDirs(example_dir_cache, 'YKRPC_POD_NAME', @config.prefix_name)
 
-      # 替换 YKRPC_POD_NAME YKPRC_AUTHOR_NAME YKPRC_AUTHOR_EMAIL  YKPRC_CREATE_DATE   YKPRC_CREATE_YEAR
+      # 替换 YKRPC_POD_NAME YKRPC_AUTHOR_NAME YKRPC_AUTHOR_EMAIL  YKRPC_CREATE_DATE   YKRPC_CREATE_YEAR
       updateFiles(file_arr, @keyMap)
 
       FileUtils.copy_entry(example_dir_cache, @example_dir_dest)

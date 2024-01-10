@@ -7,12 +7,12 @@ Pod::Spec.new do |spec|
   YKRPC_POD_NAME long description of the pod here.
   DESC
 
-  spec.homepage         = 'http://github.com/YKPRC_AUTHOR_NAME/YKRPC_POD_NAME'
+  spec.homepage         = 'http://github.com/YKRPC_AUTHOR_NAME/YKRPC_POD_NAME'
   spec.license      = { :type => "MIT", :file => "FILE_LICENSE" }
-  spec.author             = { "YKPRC_AUTHOR_NAME" => "YKPRC_AUTHOR_EMAIL" }
+  spec.author             = { "YKRPC_AUTHOR_NAME" => "YKRPC_AUTHOR_EMAIL" }
   spec.ios.deployment_target = '9.0'
 
-  spec.source       = { :git => "http://github/YKPRC_AUTHOR_NAME/YKRPC_POD_NAME.git", :tag => "#{spec.version}" }
+  spec.source       = { :git => "http://github/YKRPC_AUTHOR_NAME/YKRPC_POD_NAME.git", :tag => "#{spec.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #

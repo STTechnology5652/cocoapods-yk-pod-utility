@@ -81,7 +81,7 @@ MODULE_NAME = YKRPC_POD_NAME_Example
 // [CFBundleIdentifier](https://developer.apple.com/documentation/bundleresources/information_property_list/cfbundleidentifier)
 // key in the `Info.plist` file to the value of this build setting.
 
-PRODUCT_BUNDLE_IDENTIFIER = com.YKPRC_CLASS_PREFIX.YKRPC_POD_NAME
+PRODUCT_BUNDLE_IDENTIFIER = com.YKRPC_CLASS_PREFIX.YKRPC_POD_NAME
 
 
 // Provisioning Profile

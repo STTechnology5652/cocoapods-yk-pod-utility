@@ -1,9 +1,9 @@
 # YKRPC-POD-NAME
 
-[![CI Status](https://img.shields.io/travis/author/YKRPC-POD-NAME.svg?style=flat)](https://travis-ci.org/author/YKPRC-POD-NAME )
-[![Version](https://img.shields.io/cocoapods/v/YKRPC-POD-NAME.svg?style=flat)](https://cocoapods.org/pods/YKPRC-POD-NAME)
+[![CI Status](https://img.shields.io/travis/author/YKRPC-POD-NAME.svg?style=flat)](https://travis-ci.org/author/YKRPC-POD-NAME )
+[![Version](https://img.shields.io/cocoapods/v/YKRPC-POD-NAME.svg?style=flat)](https://cocoapods.org/pods/YKRPC-POD-NAME)
 [![License](https://img.shields.io/cocoapods/l/YKRPC-POD-NAME.svg?style=flat)](https://github.com/author/YKRPC-POD-NAME/blob/701ff106db3caa805f9dab12df7749c03c889c47/LICENSE)
-[![Platform](https://img.shields.io/cocoapods/p/YKRPC-POD-NAME.svg?style=flat)](https://cocoapods.org/pods/YKPRC-POD-NAME)
+[![Platform](https://img.shields.io/cocoapods/p/YKRPC-POD-NAME.svg?style=flat)](https://cocoapods.org/pods/YKRPC-POD-NAME)
 
 ## 摘要
 
