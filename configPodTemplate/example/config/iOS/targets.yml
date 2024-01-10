@@ -1,0 +1,133 @@
+############
+# Targets
+############
+
+targets:
+
+  # -----------
+  # MyApp_iOS
+  # -----------
+
+  YKRPC_POD_NAME_Example:
+    type: application
+    platform: iOS
+
+    # sources
+    sources:
+      - main/Common
+      - main/Info.plist
+
+    # Config Files
+    configFiles:
+      Debug: config/iOS/target-main/config-custom/debug.xcconfig
+      Release: config/iOS/target-main/config-custom/release.xcconfig
+      DebugQ: config/iOS/target-main/config-enterprise/debug.xcconfig
+      ReleaseQ: config/iOS/target-main/config-enterprise/release.xcconfig
+
+    # dependencies
+    dependencies:
+      - target: NotificationContent
+      - target: NotificationService
+    #    - carthage: Reusable
+    #    - package: SwiftyUtils
+    #    - sdk: CloudKit.framework
+
+    # scripts
+    preBuildScripts:
+      # show build configuration
+      - script: |
+          # Build Configuration
+          echo "Build target: $TARGETNAME"
+          echo "Build Configuration: $CONFIGURATION"
+          echo "GCC_PREPROCESSOR_DEFINITIONS: $GCC_PREPROCESSOR_DEFINITIONS"
+        name: 🔥build configuration
+
+  # -----------
+  # NotificationContent
+  # -----------
+  NotificationContent:
+    platform: iOS
+    type: app-extension
+    sources:
+      - NotificationContent
+
+    # Config Files
+    configFiles:
+      Debug: config/iOS/target-notificationContent/config-custom/debug.xcconfig
+      Release: config/iOS/target-notificationContent/config-custom/release.xcconfig
+      DebugQ: config/iOS/target-notificationContent/config-enterprise/debug.xcconfig
+      ReleaseQ: config/iOS/target-notificationContent/config-enterprise/release.xcconfig
+
+    # dependencies
+    dependencies:
+      - sdk: UserNotifications.framework
+
+    # scripts
+    preBuildScripts:
+      # show build configuration
+      - script: |
+          # Build Configuration
+          echo "Build target: $TARGETNAME"
+          echo "Build Configuration: $CONFIGURATION"
+          echo "GCC_PREPROCESSOR_DEFINITIONS: $GCC_PREPROCESSOR_DEFINITIONS"
+        name: 🔥build configuration
+
+  # -----------
+  # NotificationService
+  # -----------
+
+  NotificationService:
+    platform: iOS
+    type: app-extension
+    sources:
+      - NotificationService
+
+    # Config Files
+    configFiles:
+      Debug: config/iOS/target-notificationService/config-custom/debug.xcconfig
+      Release: config/iOS/target-notificationService/config-custom/release.xcconfig
+      DebugQ: config/iOS/target-notificationService/config-enterprise/debug.xcconfig
+      ReleaseQ: config/iOS/target-notificationService/config-enterprise/release.xcconfig
+
+    # dependencies
+    dependencies:
+      - sdk: UserNotifications.framework
+
+    # scripts
+    preBuildScripts:
+      # show build configuration
+      - script: |
+          # Build Configuration
+          echo "Build target: $TARGETNAME"
+          echo "Build Configuration: $CONFIGURATION"
+          echo "GCC_PREPROCESSOR_DEFINITIONS: $GCC_PREPROCESSOR_DEFINITIONS"
+        name: 🔥build configuration
+
+schemes:
+  YKRPC_POD_NAME_Example:
+    build:
+      targets:
+        YKRPC_POD_NAME_Example: [ build,  analyze, profile, archive ]
+      config: Debug
+      parallelizeBuild: true
+      buildImplicitDependencies: true
+
+    test:
+      config: Debug
+
+    run:
+      config: Debug
+
+    profile:
+      config: Release
+
+    analyze:
+      config: Debug
+
+    archive:
+      config: Release
+      customArchiveName: YKRPC_POD_NAME_Example
+      revealArchiveInOrganizer: false
+    management:
+      share: true
+

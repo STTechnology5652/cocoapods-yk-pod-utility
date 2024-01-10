@@ -1,0 +1,5 @@
+PRODUCT_NAME = NotificationContent
+PRODUCT_DISPLAY_NAME = NotificationContent
+PRODUCT_BUNDLE_IDENTIFIER = com.YKPRC_CLASS_PREFIX.YKPRC-POD-NAME.notificationContent
+
+INFOPLIST_FILE = NotificationContent/NotificationContentInfo.plist

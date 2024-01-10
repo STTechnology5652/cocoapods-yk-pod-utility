@@ -1,0 +1,3 @@
+#include "../Shared.xcconfig"
+PRODUCT_DISPLAY_NAME = NotificationServiceQ
+
