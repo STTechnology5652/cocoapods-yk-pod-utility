@@ -98,7 +98,7 @@ PROVISIONING_PROFILE_SPECIFIER =
 //
 // Path to the header defining the Objective-C interfaces to be exposed in Swift.
 
-//SWIFT_OBJC_BRIDGING_HEADER = YeahPay/Bridging-Header.h
+SWIFT_OBJC_BRIDGING_HEADER = TargetMain/YKRPC_POD_NAME_Example-Bridging-Header.h
 
 
 

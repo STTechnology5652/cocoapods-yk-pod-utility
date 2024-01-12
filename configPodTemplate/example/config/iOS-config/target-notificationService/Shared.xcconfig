@@ -5,3 +5,9 @@ PRODUCT_DISPLAY_NAME = NotificationService
 PRODUCT_BUNDLE_IDENTIFIER = com.YKRPC_CLASS_PREFIX.YKRPC_POD_NAME.NotificationService
 
 INFOPLIST_FILE = NotificationService/Info.plist
+
+// Objective-C Bridging Header
+//
+// Path to the header defining the Objective-C interfaces to be exposed in Swift.
+
+//SWIFT_OBJC_BRIDGING_HEADER = NotificationService/NotificationService-Bridging-Header.h

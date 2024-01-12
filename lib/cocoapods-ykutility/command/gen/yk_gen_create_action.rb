@@ -98,8 +98,8 @@ module YKPod
       # 在倒数第二行插入新语句
       # s.dependency "YKRouterComponent"
       #   s.dependency "YKModuleServiceComponent.swift" #swift 服务中间件， 如果是纯oc组件，请注释此中间件
-      de_router = "spec.dependency \"YKRouterComponent\"\n"
-      de_service = "spec.dependency \"YKModuleServiceComponent"
+      de_router = "  spec.dependency \"YKRouterComponent\"\n"
+      de_service = "  spec.dependency \"YKModuleServiceComponent"
       if @config.language == "swift"
         de_service += ".swift\" #swift 服务中间件\n"
       else
