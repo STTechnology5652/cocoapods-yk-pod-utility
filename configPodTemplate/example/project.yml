@@ -1,0 +1,37 @@
+# read document if you don't understand something :)
+# https://github.com/yonaskolb/XcodeGen/blob/master/Docs/ProjectSpec.md
+
+name: YKRPC_POD_NAME_Example
+
+options:
+  minimumXcodeGenVersion: 2.10
+  generateEmptyDirectories: true
+  bundleIdPrefix: come.YKRPC_POD_Name.example
+  developmentLanguage: en
+#  postGenCommand: pod install
+
+  deploymentTarget:
+    iOS: "10.0"
+
+fileGroups:
+  - config/iOS-config
+  - config/project-config
+
+configs:
+  Debug: DEBUG-NAME
+  Release: RELEASE-NAME
+  DebugQ: DEBUGQ-NAME
+  ReleaseQ: RELEASEQ-NAME
+
+configFiles:
+  Debug: config/project-config/config-custom/debug.xcconfig
+  Release: config/project-config/config-custom/release.xcconfig
+  DebugQ: config/project-config/config-enterprise/debug.xcconfig
+  ReleaseQ: config/project-config/config-enterprise/release.xcconfig
+
+include:
+  - path: config/iOS-targets.yml
+    relativePaths: false
+
+  - path: config/iOS-targets-Q.yml
+    relativePaths: false

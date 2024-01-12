@@ -1,0 +1,53 @@
+#私有源
+# source 'xxxxx'
+
+#cocoapods源 最后声明, 可以解决私有源pod 与 公共源pod 重名的问题
+source 'https://github.com/CocoaPods/Specs.git'
+
+# Uncomment the next line to define a global platform for your project
+platform :ios, '9.0'
+
+inhibit_all_warnings!
+
+use_frameworks! :linkage => :static # 使用 framework形势的静态库， 注释可变为.a 静态库
+use_modular_headers! #此字段用于pod自动生成 swift module 伞文件
+
+project 'YKRPC_POD_NAME_Example.xcodeproj'
+target 'YKRPC_POD_NAME_Example' do
+  # Pods for YKRPC_POD_NAME_Example
+  pod 'YKRPC_POD_NAME', :path => '../'
+
+end
+
+target 'NotificationContent' do
+  # Pods for NotificationContent
+
+end
+
+target 'NotificationService' do
+  # Pods for NotificationService
+
+end
+
+# cocoapods  pod install hook
+post_install do |installer|
+  # 添加创建时候类前缀
+  installer.pods_project.root_object.attributes["CLASSPREFIX"] = "YKRPC_CLASS_PREFIX" # 添加 class prefix
+  # project编辑配置
+  installer.pods_project.build_configurations.each do |config|
+    config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '10.0'
+    config.build_settings['CLANG_WARN_DOCUMENTATION_COMMENTS'] = 'NO'
+  end
+
+  # 单个target编辑配置
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '10.0' #修改pod的最低版本
+
+      # 以下是xcode14 忽略 bundle 类型pod签名
+      config.build_settings['EXPANDED_CODE_SIGN_IDENTITY'] = ""
+      config.build_settings['CODE_SIGNING_REQUIRED'] = "NO"
+      config.build_settings['CODE_SIGNING_ALLOWED'] = "NO"
+    end
+  end
+end

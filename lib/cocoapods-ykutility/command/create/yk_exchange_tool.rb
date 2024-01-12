@@ -3,7 +3,9 @@
 module YKPod
   module YKExchangeTool
     require 'cocoapods-ykutility/tools/yk_log_tool'
+    require 'file_exists'
     include YKPod::YKLogTool
+
     def updateFileDirs(rootDir, keyWord, destWord)
       Dir.glob("#{rootDir}/**/**/**/**").each do |name|
         next if File.directory?(name) == false
