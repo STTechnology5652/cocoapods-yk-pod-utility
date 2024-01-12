@@ -13,7 +13,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = 'https://github.com/stephen5652/cocoapods-yk-pod-utility.git'
   spec.license       = 'MIT'
 
-  spec.files         = Dir['lib/**/*', 'podTemplate/**/*', 'podTemplate/**/.gitkeep']
+  spec.files         = Dir['lib/**/*', 'podTemplate/**/*', 'podTemplate/**/.gitkeep',  'configPodTemplate/**/*', 'configPodTemplate/**/.gitkeep']
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ['lib']
