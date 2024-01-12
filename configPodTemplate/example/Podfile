@@ -19,6 +19,15 @@ target 'YKRPC_POD_NAME_Example' do
 
 end
 
+target 'NotificationContent' do
+  # Pods for NotificationContent
+
+end
+
+target 'NotificationService' do
+  # Pods for NotificationService
+
+end
 
 # cocoapods  pod install hook
 post_install do |installer|

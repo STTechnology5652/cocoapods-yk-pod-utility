@@ -8,7 +8,7 @@ Pod::Spec.new do |spec|
   DESC
 
   spec.homepage         = 'http://github.com/YKRPC_AUTHOR_NAME/YKRPC_POD_NAME'
-  spec.license      = { :type => "MIT", :file => "FILE_LICENSE" }
+  spec.license      = { :type => "MIT", :file => "LICENSE" }
   spec.author             = { "YKRPC_AUTHOR_NAME" => "YKRPC_AUTHOR_EMAIL" }
   spec.ios.deployment_target = '9.0'
 

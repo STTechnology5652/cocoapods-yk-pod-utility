@@ -2,7 +2,7 @@
 //  NotificationViewController.swift
 //  NotificationContent
 //
-//  Created by stephenchen on 2024/1/7.
+//  Created by YKRPC_AUTHOR_NAME on YKRPC_CREATE_DATE.
 //
 
 import UIKit

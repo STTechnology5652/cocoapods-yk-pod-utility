@@ -14,7 +14,8 @@ options:
     iOS: "10.0"
 
 fileGroups:
-  - config/iOS
+  - config/iOS-config
+  - config/project-config
 
 configs:
   Debug: DEBUG-NAME
@@ -23,14 +24,14 @@ configs:
   ReleaseQ: RELEASEQ-NAME
 
 configFiles:
-  Debug: config/project/config-custom/debug.xcconfig
-  Release: config/project/config-custom/release.xcconfig
-  DebugQ: config/project/config-enterprise/debug.xcconfig
-  ReleaseQ: config/project/config-enterprise/release.xcconfig
+  Debug: config/project-config/config-custom/debug.xcconfig
+  Release: config/project-config/config-custom/release.xcconfig
+  DebugQ: config/project-config/config-enterprise/debug.xcconfig
+  ReleaseQ: config/project-config/config-enterprise/release.xcconfig
 
 include:
-  - path: config/iOS/targets.yml
+  - path: config/iOS-targets.yml
     relativePaths: false
 
-  - path: config/iOS/targets-Q.yml
+  - path: config/iOS-targets-Q.yml
     relativePaths: false
