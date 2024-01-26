@@ -4,11 +4,12 @@
 //
 //  Created by YKRPC_AUTHOR_NAME on YKRPC_CREATE_DATE.
 //
-import YKModuleServiceComponentSwift
+import STModuleServiceSwift
 
-private class YKRPC_POD_NAMERegisterService: NSObject, YKModuleServiceRegisterProtocol {
-    static func ykModuleServiceRegistAction() {
-//         YKModuleServiceComponent().ykRegistModule(REHomeServiceRegist.self, protocol: XXXXProtocol.self, err: nil)
+private class YKRPC_POD_NAMERegisterService: NSObject, STModuleServiceRegisterProtocol {
+    static func stModuleServiceRegistAction() {
+        //注册服务 NSObject --> NSObjectProtocol   NSObjectProtocol为 swift 协议
+//         STModuleService().stRegistModule(YKRPC_POD_NAMERegisterService.self, protocol: NSObjectProtocol.self, err: nil)
     }
 }
 

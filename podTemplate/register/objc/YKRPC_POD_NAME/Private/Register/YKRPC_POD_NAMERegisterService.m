@@ -6,14 +6,14 @@
 //
 
 #import "YKRPC_POD_NAMERegisterService.h"
-#import <YKModuleServiceComponent/YKModuleServiceComponentHeader.h>
+#import <STComponentTools/STModuleServiceHeader.h>
 
-@interface YKRPC_POD_NAMERegisterService()<YKModuleServiceRegisterProtocol, SUAdvertisementServiceProtocol>
+@interface YKRPC_POD_NAMERegisterService()<STModuleServiceRegisterProtocol> //xxxxServiceProtocol
 @end
 @implementation SUAdvertisementServiceRegister
 
-+ (void)ykModuleServiceRegistAction {
-    YKModuleServiceRegisterExecute(SUAdvertisementServiceRegister.class, @protocol(SUAdvertisementServiceProtocol), nil);
++ (void)stModuleServiceRegistAction {
+//     stModuleServiceRegisterExecute(SUAdvertisementServiceRegister.class, @protocol(SUAdvertisementServiceProtocol), nil);
 }
 
 @end

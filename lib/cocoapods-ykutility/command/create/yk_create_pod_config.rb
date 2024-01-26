@@ -16,7 +16,7 @@ module YKPod
       user_email = user_email.blank? ? 'xxx@xxx.com' : user_email
       @author = user_name.strip.gsub('.', '')
       @author_email = user_email.strip
-      @prefix = 'YK'
+      @prefix = 'ST'
       @path = File.expand_path(Dir.getwd.to_s)
     end
 
