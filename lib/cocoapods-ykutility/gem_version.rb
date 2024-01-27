@@ -1,5 +1,5 @@
 module CocoapodsYkPodUtility
-  VERSION = '2.0.2'
+  VERSION = '2.0.3'
   YK_POD_TEMPLATE_PATH = File.expand_path(File.join(__FILE__, '../../../podTemplate'))
   YK_POD_BUSINESS_REGISTER_PATH = File.expand_path(File.join(__FILE__, '../../../podTemplate/register'))
 

@@ -12,10 +12,24 @@ inhibit_all_warnings!
 use_frameworks! :linkage => :static # 使用 framework形势的静态库， 注释可变为.a 静态库
 use_modular_headers! #此字段用于pod自动生成 swift module 伞文件
 
+def st_installLocalPods(dir, arr)
+  arr.each do |onePod|
+  pod  onePod, :path => File.join(dir, onePod)
+  end
+end
+
+def pod_develop
+  dir = '../../'
+  arr = [
+  'YKRPC_POD_NAME'
+  ]
+   st_installLocalPods(dir, arr)
+end
+
 project 'YKRPC_POD_NAME_Example.xcodeproj'
 target 'YKRPC_POD_NAME_Example' do
   # Pods for YKRPC_POD_NAME_Example
-  pod 'YKRPC_POD_NAME', :path => '../'
+  pod_develop
 
 end
 
