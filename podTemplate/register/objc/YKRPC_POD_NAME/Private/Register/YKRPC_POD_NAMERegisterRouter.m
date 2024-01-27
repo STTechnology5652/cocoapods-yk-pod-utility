@@ -6,16 +6,16 @@
 //
 
 #import "YKRPC_POD_NAMERegisterRouter.h"
-#import <YKRouterComponent/YKRouterComponentHeader.h>
+#import <STComponentTools/STRouterHeader.h>
 
-@interface YKRPC_POD_NAMERegisterRouter()<YKRouterComponentRegisterProtocol>
+@interface YKRPC_POD_NAMERegisterRouter()<STRouterRegisterProtocol>
 
 @end
 
 @implementation YKRPC_POD_NAMERegisterRouter
 
-+ (void)ykRouterRegisterExecute {
-    [[YKRouterComponent shareInstance] ykRegisterUrlPartterns:@"XXXRouterStr" error:nil action:^(YKRouterUrlRequest * _Nonnull urlRequest, YKRouterUrlCompletion  _Nonnull completetion) {
++ (void)stRouterRegisterExecute {
+    [[STRouterComponent shareInstance] ykRegisterUrlPartterns:@"XXXRouterStr" error:nil action:^(STRouterUrlRequest * _Nonnull urlRequest, STRouterUrlCompletion  _Nonnull completetion) {
 //         xxxVC *vc = [[xxxVC alloc] init];
 //         UIViewController *topVC = urlRequest.fromVC ? urlRequest.fromVC : [UIViewController topController];
 //         [topVC.navigationController pushViewController:vc animated:YES];

@@ -96,14 +96,12 @@ module YKPod
       spec_file_path = File.join(pod_dir_cache, "YKRPC_POD_NAME.podspec")
 
       # 在倒数第二行插入新语句
-      # s.dependency "YKRouterComponent"
-      #   s.dependency "YKModuleServiceComponent.swift" #swift 服务中间件， 如果是纯oc组件，请注释此中间件
-      de_router = "spec.dependency \"YKRouterComponent\"\n"
-      de_service = "spec.dependency \"YKModuleServiceComponent"
+      # s.dependency "STComponentTools/STRouter"
+      #   s.dependency "STModuleService.swift" #swift 服务中间件， 如果是纯oc组件，请注释此中间件
+      de_router = "spec.dependency \"STComponentTools/STRouter\"\n"
+      de_service = "spec.dependency \"STComponentTools/STModuleService\" #oc 服务中间件\n"
       if @config.language == "swift"
-        de_service += ".swift\" #swift 服务中间件\n"
-      else
-        de_service += "\" #oc 服务中间件\n"
+        de_service = "spec.dependency \"STModuleService.swift\"  #swift 服务中间件\n"
       end
 
       lines = File.readlines(spec_file_path)
@@ -141,7 +139,7 @@ module YKPod
 
 
       # 在第二行插入新语句
-      source_pri = "http://gitlab.y" + "ea" + "hk" + "a.com/App/iOS/YeahkaNativeComSpecsIndex.git"
+      source_pri = "https://github.com/STTechnology5652/STSpecs.git"
       lines = File.readlines(pod_file_cache)
       lines.insert(2, "source \"#{source_pri}\"\n")
       File.open(pod_file_cache, 'w') { |file| file.puts(lines.join) }
