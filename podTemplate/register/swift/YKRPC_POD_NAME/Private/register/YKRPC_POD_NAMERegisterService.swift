@@ -6,7 +6,7 @@
 //
 import STModuleServiceSwift
 
-private class YKRPC_POD_NAMERegisterService: NSObject, STModuleServiceProtocol {
+private class YKRPC_POD_NAMERegisterService: NSObject, STModuleServiceRegisterProtocol {
     static func stModuleServiceRegistAction() {
         //注册服务 NSObject --> NSObjectProtocol   NSObjectProtocol为 swift 协议
 //         STModuleService().stRegistModule(YKRPC_POD_NAMERegisterService.self, protocol: NSObjectProtocol.self, err: nil)
