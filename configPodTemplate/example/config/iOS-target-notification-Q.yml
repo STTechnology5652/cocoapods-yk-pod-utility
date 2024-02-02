@@ -8,48 +8,14 @@ targets:
   # MyApp_iOS
   # -----------
 
-  YKRPC_POD_NAME_ExampleQ:
-    type: application
-    platform: iOS
-
-    # sources
-    sources:
-      # - YKRPC_POD_NAME_Example/YKRPC_POD_NAME_Example/Common
-      # - YKRPC_POD_NAME_Example/YKRPC_POD_NAME_Example/Info.plist
-      - TargetMain
-      - CommonFiles
-
-    # Config Files
-    configFiles:
-      Debug: config/iOS-config/target-main-Q/config-custom/debug.xcconfig
-      Release: config/iOS-config/target-main-Q/config-custom/release.xcconfig
-      DebugQ: config/iOS-config/target-main-Q/config-enterprise/debug.xcconfig
-      ReleaseQ: config/iOS-config/target-main-Q/config-enterprise/release.xcconfig
-
-    # dependencies
-    dependencies:
-      - target: NotificationContentQ
-      - target: NotificationServiceQ
-      # - carthage: Reusable
-      # - package: SwiftyUtils
-      # - sdk: CloudKit.framework
-
-    # scripts
-    preBuildScripts:
-      # show build configuration
-      - script: |
-          # Build Configuration
-          echo "Build target: $TARGETNAME"
-          echo "Build Configuration: $CONFIGURATION"
-          echo "GCC_PREPROCESSOR_DEFINITIONS: $GCC_PREPROCESSOR_DEFINITIONS"
-        name: 🔥build configuration
-
   # -----------
   # NotificationContentQ
   # -----------
   NotificationContentQ:
     platform: iOS
     type: app-extension
+    info:
+      path: $SRCROOT/NotificationContent/Info.plist
     sources:
       - NotificationContent
       - CommonFiles
@@ -82,6 +48,8 @@ targets:
   NotificationServiceQ:
     platform: iOS
     type: app-extension
+    info:
+      path: $SRCROOT/NotificationService/Info.plist
     sources:
       - NotificationService
       - CommonFiles
@@ -106,32 +74,3 @@ targets:
           echo "Build Configuration: $CONFIGURATION"
           echo "GCC_PREPROCESSOR_DEFINITIONS: $GCC_PREPROCESSOR_DEFINITIONS"
         name: 🔥build configuration
-
-schemes:
-  YKRPC_POD_NAME_ExampleQ:
-    build:
-      targets:
-        YKRPC_POD_NAME_ExampleQ: [ build,  analyze, profile, archive ]
-      config: DebugQ
-      parallelizeBuild: true
-      buildImplicitDependencies: true
-
-    test:
-      config: DebugQ
-
-    run:
-      config: DebugQ
-
-    profile:
-      config: ReleaseQ
-
-    analyze:
-      config: DebugQ
-
-    archive:
-      config: ReleaseQ
-      customArchiveName: YKRPC_POD_NAME_ExampleQ
-      revealArchiveInOrganizer: false
-    management:
-      share: true
-

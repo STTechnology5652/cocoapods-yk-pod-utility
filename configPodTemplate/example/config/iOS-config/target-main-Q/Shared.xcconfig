@@ -40,16 +40,6 @@ ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon
 // build error.
 
 
-// Info.plist File
-//
-// The project-relative path to the property list file that contains the `Info.plist`
-// information used by bundles. For details on information property list files, see
-// [Information Property
-// List](https://developer.apple.com/documentation/bundleresources/information_property_list).
-
-INFOPLIST_FILE = YKRPC_POD_NAME_Example/YKRPC_POD_NAME_Example/Info.plist
-
-
 
 // Runpath Search Paths
 //

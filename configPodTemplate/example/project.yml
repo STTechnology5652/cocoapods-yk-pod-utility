@@ -30,8 +30,14 @@ configFiles:
   ReleaseQ: config/project-config/config-enterprise/release.xcconfig
 
 include:
-  - path: config/iOS-targets.yml
+  - path: config/iOS-target-main.yml
     relativePaths: false
 
-  - path: config/iOS-targets-Q.yml
+  - path: config/iOS-target-main-Q.yml
+    relativePaths: false
+
+  - path: config/iOS-target-notification.yml
+    relativePaths: false
+
+  - path: config/iOS-target-notification-Q.yml
     relativePaths: false
