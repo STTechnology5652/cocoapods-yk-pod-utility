@@ -15,7 +15,7 @@ targets:
     platform: iOS
     type: app-extension
     info:
-      path: $SRCROOT/NotificationContent/Info.plist
+      path: $SRCROOT/InfoFiles/NotificationContentInfo.plist
     sources:
       - path: NotificationContent
         inferDestinationFiltersByPath: true
@@ -52,7 +52,7 @@ targets:
     platform: iOS
     type: app-extension
     info:
-      path: $SRCROOT/NotificationService/Info.plist
+      path: $SRCROOT/InfoFiles/NotificationServiceInfo.plist
     sources:
       - path: NotificationService
         inferDestinationFiltersByPath: true

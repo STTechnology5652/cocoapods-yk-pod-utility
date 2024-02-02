@@ -16,6 +16,7 @@ options:
 fileGroups:
   - config/iOS-config
   - config/project-config
+  - InfoFiles
 
 configs:
   Debug: DEBUG-NAME

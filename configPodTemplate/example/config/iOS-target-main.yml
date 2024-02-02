@@ -12,7 +12,7 @@ targets:
     type: application
     platform: iOS
     info:
-      path: $SRCROOT/TargetMain/Info.plist
+      path: $SRCROOT/InfoFiles/TargetMainInfo.plist
 
     # sources
     sources:
