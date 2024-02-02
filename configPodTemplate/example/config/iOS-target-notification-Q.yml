@@ -17,7 +17,10 @@ targets:
     info:
       path: $SRCROOT/NotificationContent/Info.plist
     sources:
-      - NotificationContent
+      - path: NotificationContent
+        inferDestinationFiltersByPath: true
+        excludes:
+          - "**/*.plist"
       - CommonFiles
 
     # Config Files
@@ -51,7 +54,10 @@ targets:
     info:
       path: $SRCROOT/NotificationService/Info.plist
     sources:
-      - NotificationService
+      - path: NotificationService
+        inferDestinationFiltersByPath: true
+        excludes:
+          - "**/*.plist"
       - CommonFiles
 
     # Config Files

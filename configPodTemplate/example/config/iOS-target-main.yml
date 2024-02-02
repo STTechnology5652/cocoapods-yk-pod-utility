@@ -16,7 +16,11 @@ targets:
 
     # sources
     sources:
-      - TargetMain
+      - path: TargetMain
+        inferDestinationFiltersByPath: true
+        excludes:
+          - "**/*.plist"
+
       - CommonFiles
 
     # Config Files

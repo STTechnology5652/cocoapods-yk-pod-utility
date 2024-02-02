@@ -18,7 +18,10 @@ targets:
     sources:
       # - YKRPC_POD_NAME_Example/YKRPC_POD_NAME_Example/Common
       # - YKRPC_POD_NAME_Example/YKRPC_POD_NAME_Example/Info.plist
-      - TargetMain
+      - path: TargetMain
+        inferDestinationFiltersByPath: true
+        excludes:
+          - "**/*.plist"
       - CommonFiles
 
     # Config Files

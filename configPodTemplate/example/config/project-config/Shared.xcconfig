@@ -423,8 +423,8 @@ IPHONEOS_DEPLOYMENT_TARGET = 11.0
 // [CFBundleName](https://developer.apple.com/documentation/bundleresources/information_property_list/cfbundlename)
 // key in the `Info.plist` file to the value of this build setting.
 
-PRODUCT_NAME = YKRPC-POD-NAME_Example
-PRODUCT_DISPLAY_NAME = YKRPC-POD-NAME_Example
+PRODUCT_NAME = YKRPC_POD_NAME_Example
+PRODUCT_DISPLAY_NAME = YKRPC_POD_NAME_Example
 
 
 

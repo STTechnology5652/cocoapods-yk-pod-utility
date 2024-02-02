@@ -17,4 +17,4 @@ GCC_PREPROCESSOR_DEFINITIONS =  $(inherited) kENTERPRISE=1
 // [CFBundleName](https://developer.apple.com/documentation/bundleresources/information_property_list/cfbundlename)
 // key in the `Info.plist` file to the value of this build setting.
 
-PRODUCT_DISPLAY_NAME = YKRPC-POD-NAME_ExampleQ
+PRODUCT_DISPLAY_NAME = YKRPC_POD_NAME_ExampleQ
