@@ -33,6 +33,11 @@ target 'YKRPC_POD_NAME_Example' do
 
 end
 
+def pod_string_item_appen(item_str, append_str)
+  item_str = item_str.blank? ? "" : item_str
+  item_str << append_str
+  return item_str
+end
 
 # cocoapods  pod install hook
 post_install do |installer|
@@ -42,6 +47,9 @@ post_install do |installer|
   installer.pods_project.build_configurations.each do |config|
     config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '10.0'
     config.build_settings['CLANG_WARN_DOCUMENTATION_COMMENTS'] = 'NO'
+    # xcode15 支持 c++旧版链接器
+    # items_append = "$(inherited) -ld64 -ld_classic"
+    # config.build_settings['OTHER_LDFLAGS'] = pod_string_item_appen(config.build_settings['OTHER_LDFLAGS'], items_append)
   end
 
   # 单个target编辑配置
