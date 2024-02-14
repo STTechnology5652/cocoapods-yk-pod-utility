@@ -10,7 +10,7 @@
 
 @interface YKRPC_POD_NAMERegisterService()<STModuleServiceRegisterProtocol> //xxxxServiceProtocol
 @end
-@implementation SUAdvertisementServiceRegister
+@implementation YKRPC_POD_NAMERegisterService
 
 + (void)stModuleServiceRegistAction {
 //     stModuleServiceRegisterExecute(SUAdvertisementServiceRegister.class, @protocol(SUAdvertisementServiceProtocol), nil);

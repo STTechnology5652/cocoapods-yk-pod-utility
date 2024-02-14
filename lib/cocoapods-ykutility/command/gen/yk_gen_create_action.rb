@@ -28,6 +28,7 @@ module YKPod
 
       @template_pod_path = File.join(CocoapodsYkPodUtility::YK_GEN_TEMPLATE_PATH, @config.language)
       @template_example_path = File.join(CocoapodsYkPodUtility::YK_GEN_TEMPLATE_PATH, "example")
+      @gitignore_file_path = File.join(CocoapodsYkPodUtility::YK_GEN_TEMPLATE_PATH, "gitignore")
       @register_pod_path = File.join(CocoapodsYkPodUtility::YK_GEN_BUSINESS_REGISTER_PATH, @config.language)
 
       time_str = Time.now.strftime("%Y/%m/%d")
@@ -76,6 +77,7 @@ module YKPod
       pod_dir_cache = File.join(@project_dir_dest, "#{@config.prefix_name}_cache")
       pod_dir_dest = File.join(@project_dir_dest)
       FileUtils.copy_entry(@template_pod_path, pod_dir_cache)
+      FileUtils.copy_file(@gitignore_file_path, File.join(pod_dir_cache, ".gitignore"))
       prepare_business_pod_files(pod_dir_cache)
 
       # 改文件夹

@@ -8,48 +8,19 @@ targets:
   # MyApp_iOS
   # -----------
 
-  YKRPC_POD_NAME_Example:
-    type: application
-    platform: iOS
-
-    # sources
-    sources:
-      - TargetMain
-      - CommonFiles
-
-    # Config Files
-    configFiles:
-      Debug: config/iOS-config/target-main/config-custom/debug.xcconfig
-      Release: config/iOS-config/target-main/config-custom/release.xcconfig
-      DebugQ: config/iOS-config/target-main/config-enterprise/debug.xcconfig
-      ReleaseQ: config/iOS-config/target-main/config-enterprise/release.xcconfig
-
-    # dependencies
-    dependencies:
-      - target: NotificationContent
-      - target: NotificationService
-    #    - carthage: Reusable
-    #    - package: SwiftyUtils
-    #    - sdk: CloudKit.framework
-
-    # scripts
-    preBuildScripts:
-      # show build configuration
-      - script: |
-          # Build Configuration
-          echo "Build target: $TARGETNAME"
-          echo "Build Configuration: $CONFIGURATION"
-          echo "GCC_PREPROCESSOR_DEFINITIONS: $GCC_PREPROCESSOR_DEFINITIONS"
-        name: 🔥build configuration
-
   # -----------
   # NotificationContent
   # -----------
   NotificationContent:
     platform: iOS
     type: app-extension
+    info:
+      path: $SRCROOT/InfoFiles/NotificationContentInfo.plist
     sources:
-      - NotificationContent
+      - path: NotificationContent
+        inferDestinationFiltersByPath: true
+        excludes:
+          - "**/*.plist"
       - CommonFiles
 
     # Config Files
@@ -80,8 +51,13 @@ targets:
   NotificationService:
     platform: iOS
     type: app-extension
+    info:
+      path: $SRCROOT/InfoFiles/NotificationServiceInfo.plist
     sources:
-      - NotificationService
+      - path: NotificationService
+        inferDestinationFiltersByPath: true
+        excludes:
+          - "**/*.plist"
       - CommonFiles
 
     # Config Files
@@ -104,32 +80,3 @@ targets:
           echo "Build Configuration: $CONFIGURATION"
           echo "GCC_PREPROCESSOR_DEFINITIONS: $GCC_PREPROCESSOR_DEFINITIONS"
         name: 🔥build configuration
-
-schemes:
-  YKRPC_POD_NAME_Example:
-    build:
-      targets:
-        YKRPC_POD_NAME_Example: [ build,  analyze, profile, archive ]
-      config: Debug
-      parallelizeBuild: true
-      buildImplicitDependencies: true
-
-    test:
-      config: Debug
-
-    run:
-      config: Debug
-
-    profile:
-      config: Release
-
-    analyze:
-      config: Debug
-
-    archive:
-      config: Release
-      customArchiveName: YKRPC_POD_NAME_Example
-      revealArchiveInOrganizer: false
-    management:
-      share: true
-

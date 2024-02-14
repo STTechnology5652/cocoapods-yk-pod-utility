@@ -22,7 +22,7 @@ module Pod
         def self.options
           [
             ['--language=LANGUAGE', 'Language  [ ObjC / Swift ]'],
-            ['--no-demo', 'Without a demo application for your library'],
+            ['--nodemo', 'Without a demo application for your library'],
             ['--author=AUTHOR', 'Author'],
             ['--email=EMAIL', 'Email'],
             ['--prefix=PREFIX', 'Prefix header'],
@@ -36,11 +36,18 @@ module Pod
 
           @config.name = argv.shift_argument
           @config.language = (["objc", "oc"].include? argv.option('language', "swift").downcase) ? "objc" : "swift"
-          @config.with_demo = !argv.flag?('no-demo', false)
+          nodemo = argv.flag?('nodemo', false)
+          @config.with_demo = !nodemo
           @config.with_register = argv.flag?('business', false)
-          @config.author = argv.option('author', open("|git config --global user.name").gets).strip.gsub('.', '')
-          @config.author_email = argv.option('email', open("|git config --global user.email").gets).strip
-          @config.prefix = argv.option('prefix', "YK")
+          author = argv.option('author', open("|git config --global user.name").gets)
+          author = author.blank? ?  "defualt_author" :  author
+          @config.author = author.strip.gsub('.', '')
+
+          email = argv.option('email', open("|git config --global user.email").gets)
+          email = email.blank? ?  "defualt_email" :  email
+          @config.author_email = email.strip
+
+          @config.prefix = argv.option('prefix', "ST")
           @config.path = File.expand_path(argv.option('pod-path', Dir.getwd.to_s))
           super
           @additional_args = argv.remainder!
