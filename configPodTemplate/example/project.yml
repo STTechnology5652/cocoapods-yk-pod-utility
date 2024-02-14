@@ -3,6 +3,9 @@
 
 name: YKRPC_POD_NAME_Example
 
+attributes:
+  CLASSPREFIX: YKRPC_CLASS_PREFIX
+
 options:
   minimumXcodeGenVersion: 2.10
   generateEmptyDirectories: true
@@ -12,7 +15,6 @@ options:
 
   deploymentTarget:
     iOS: "10.0"
-
 fileGroups:
   - config/iOS-config
   - config/project-config
