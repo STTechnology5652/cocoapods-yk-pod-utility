@@ -11,13 +11,12 @@ targets:
   YKRPC_POD_NAME_Example:
     type: application
     platform: iOS
-    info:
-      path: $SRCROOT/InfoFiles/TargetMainInfo.plist
       
     settings:
       base:
         # 1,2,3,4,7 1:iOS 2:macos 3:tvOS 4:watchOS 7:VisionOS
         TARGETED_DEVICE_FAMILY: 1
+        INFOPLIST_FILE: "InfoFiles/TargetMainInfo.plist"
 
     # sources
     sources:
