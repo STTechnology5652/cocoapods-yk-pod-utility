@@ -35,9 +35,9 @@ targets:
       ReleaseQ: config/iOS-config/target-main/config-enterprise/release.xcconfig
 
     # dependencies
-    dependencies:
-      - target: NotificationContent
-      - target: NotificationService
+    # dependencies:
+    #   - target: NotificationContent
+    #   - target: NotificationService
     #    - carthage: Reusable
     #    - package: SwiftyUtils
     #    - sdk: CloudKit.framework
