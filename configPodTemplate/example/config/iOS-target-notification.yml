@@ -14,8 +14,13 @@ targets:
   NotificationContent:
     platform: iOS
     type: app-extension
-    info:
-      path: $SRCROOT/InfoFiles/NotificationContentInfo.plist
+      
+    settings:
+      base:
+        # 1,2,3,4,7 1:iOS 2:macos 3:tvOS 4:watchOS 7:VisionOS
+        TARGETED_DEVICE_FAMILY: 1
+        INFOPLIST_FILE: "InfoFiles/NotificationContentInfo.plist"
+
     sources:
       - path: NotificationContent
         inferDestinationFiltersByPath: true
@@ -51,8 +56,13 @@ targets:
   NotificationService:
     platform: iOS
     type: app-extension
-    info:
-      path: $SRCROOT/InfoFiles/NotificationServiceInfo.plist
+      
+    settings:
+      base:
+        # 1,2,3,4,7 1:iOS 2:macos 3:tvOS 4:watchOS 7:VisionOS
+        TARGETED_DEVICE_FAMILY: 1
+        INFOPLIST_FILE: "InfoFiles/NotificationServiceInfo.plist"
+
     sources:
       - path: NotificationService
         inferDestinationFiltersByPath: true
