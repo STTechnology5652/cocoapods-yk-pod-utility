@@ -38,15 +38,15 @@ target 'YKRPC_POD_NAME_Example' do
 
 end
 
-target 'NotificationContent' do
+# target 'NotificationContent' do
   # Pods for NotificationContent
 
-end
+# end
 
-target 'NotificationService' do
+# target 'NotificationService' do
   # Pods for NotificationService
 
-end
+# end
 
 
 def pod_string_item_appen(item_str, append_str)
